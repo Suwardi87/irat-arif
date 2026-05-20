@@ -56,18 +56,18 @@ const cardClasses = computed(() => {
     classes.push('border')
   }
 
-  // Padding
+  // Padding - responsive
   switch (props.padding) {
     case 'none':
       break
     case 'sm':
-      classes.push('p-4')
+      classes.push('p-3 sm:p-4 md:p-5')
       break
     case 'md':
-      classes.push('p-6')
+      classes.push('p-4 sm:p-6 md:p-8')
       break
     case 'lg':
-      classes.push('p-8')
+      classes.push('p-6 sm:p-8 md:p-10')
       break
   }
 

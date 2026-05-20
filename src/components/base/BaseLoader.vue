@@ -130,7 +130,7 @@ const ringSize = computed(() => {
 
         <!-- Title -->
         <h1
-          class="font-serif text-3xl md:text-4xl lg:text-5xl mb-4 luxury-letter-spacing text-gradient-gold"
+          class="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 luxury-letter-spacing text-gradient-gold px-4"
           :class="{
             'opacity-0': !showContent,
             'opacity-100': showContent
@@ -141,7 +141,7 @@ const ringSize = computed(() => {
         </h1>
 
         <!-- Animated Ring -->
-        <div class="relative w-40 h-40 mx-auto mb-6">
+        <div class="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6">
           <!-- Outer ring -->
           <div
             class="absolute inset-0 rounded-full border-2 border-gold-500/20 loading-ring"

@@ -75,13 +75,13 @@ onUnmounted(() => {
       'transition-all',
       'duration-700',
       'ease-out',
-      // Padding Y
+      // Padding Y - responsive
       {
         'py-0': paddingY === 'none',
-        'py-8': paddingY === 'sm',
-        'py-12': paddingY === 'md',
-        'py-20': paddingY === 'lg',
-        'py-32': paddingY === 'xl'
+        'py-6 sm:py-8 md:py-12': paddingY === 'sm',
+        'py-10 sm:py-12 md:py-16': paddingY === 'md',
+        'py-16 sm:py-20 md:py-24': paddingY === 'lg',
+        'py-20 sm:py-24 md:py-32': paddingY === 'xl'
       },
       // Background
       {

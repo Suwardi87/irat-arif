@@ -145,19 +145,20 @@ export interface GSAPTimelineConfig {
   yoyo?: boolean
 }
 
-export interface ScrollTriggerConfig {
-  trigger?: string | HTMLElement
-  start?: string | number
-  end?: string | number
-  scrub?: boolean | number
-  pin?: boolean
-  markers?: boolean
-  toggleActions?: string
-  onEnter?: () => void
-  onLeave?: () => void
-  onEnterBack?: () => void
-  onLeaveBack?: () => void
-}
+// ScrollTrigger config - kept for future use if needed
+// export interface ScrollTriggerConfig {
+//   trigger?: string | HTMLElement
+//   start?: string | number
+//   end?: string | number
+//   scrub?: boolean | number
+//   pin?: boolean
+//   markers?: boolean
+//   toggleActions?: string
+//   onEnter?: () => void
+//   onLeave?: () => void
+//   onEnterBack?: () => void
+//   onLeaveBack?: () => void
+// }
 
 // ============================================================
 // THREE.JS TYPES
@@ -265,17 +266,13 @@ export interface UseThreeSceneReturn {
 export interface UseAnimationReturn {
   timeline: gsap.core.Timeline
   isPlaying: Ref<boolean>
-  addScrollTrigger: (config: ScrollTriggerConfig) => ScrollTrigger
-  linkToScroll: (targets: gsap.TweenTarget, vars: gsap.TweenVars, scrollConfig: Omit<ScrollTriggerConfig, 'trigger'>) => ScrollTrigger
   play: () => void
   pause: () => void
   reverse: () => void
   restart: () => void
-  stagger: (selector: string, vars: gsap.TweenVars, staggerDelay?: number) => gsap.core.Timeline
   fadeIn: (targets: gsap.TweenTarget, duration?: number, delay?: number) => gsap.core.Tween
   fadeOut: (targets: gsap.TweenTarget, duration?: number) => gsap.core.Tween
   scale: (targets: gsap.TweenTarget, scale: number, duration?: number) => gsap.core.Tween
-  animateCamera: (camera: any, position: { x: number; y: number; z: number }, lookAt?: { x: number; y: number; z: number }, duration?: number) => gsap.core.Timeline
   cleanup: () => void
 }
 

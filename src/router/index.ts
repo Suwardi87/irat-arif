@@ -5,15 +5,14 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
  * Handles navigation between home page and invitation pages
  */
 
+// Default invitation slug - change this to set the active invitation
+const DEFAULT_INVITATION_SLUG = 'asratul-fitri'
+
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/views/HomeView.vue'),
-    meta: {
-      title: 'Undangan Digital Premium',
-      description: 'Platform undangan digital 3D premium dan cinematic'
-    }
+    redirect: `/${DEFAULT_INVITATION_SLUG}`
   },
   {
     path: '/:slug',

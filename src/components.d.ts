@@ -12,11 +12,18 @@ declare module 'vue' {
     BaseLoader: typeof import('./components/base/BaseLoader.vue')['default']
     BaseModal: typeof import('./components/base/BaseModal.vue')['default']
     BaseSection: typeof import('./components/base/BaseSection.vue')['default']
+    GoogleMapEmbed: typeof import('./components/ui/GoogleMapEmbed.vue')['default']
+    LeafletMap: typeof import('./components/ui/LeafletMap.vue')['default']
     MusicButton: typeof import('./components/ui/MusicButton.vue')['default']
     ParticleField: typeof import('./components/3d/ParticleField.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SaveCalendarButton: typeof import('./components/ui/SaveCalendarButton.vue')['default']
     ScrollIndicator: typeof import('./components/ui/ScrollIndicator.vue')['default']
     ThreeCanvas: typeof import('./components/3d/ThreeCanvas.vue')['default']
+    WaChatBubble: typeof import('./components/ui/WaChatBubble.vue')['default']
+    WaModal: typeof import('./components/ui/WaModal.vue')['default']
+    WaRsvpModal: typeof import('./components/ui/WaRsvpModal.vue')['default']
+    Wedding3DScene: typeof import('./components/3d/Wedding3DScene.vue')['default']
   }
 }
