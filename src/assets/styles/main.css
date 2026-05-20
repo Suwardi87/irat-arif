@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  * {
+    @apply border-white/10;
+  }
+
+  body {
+    @apply bg-dark-950 text-white font-sans antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-gold-500 text-dark-950;
+  }
+
+  /* Focus visible styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-gold-500 ring-offset-2 ring-offset-dark-950;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Glassmorphism effect */
+  .glass {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-md bg-dark-900/40 border border-white/5;
+  }
+
+  /* Gold shimmer effect */
+  .gold-shimmer {
+    @apply relative overflow-hidden;
+  }
+
+  .gold-shimmer::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-gold-500/10 to-transparent;
+    animation: shimmer 2s linear infinite;
+  }
+
+  /* Text gradient */
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-300 via-gold-500 to-gold-700 bg-clip-text text-transparent;
+  }
+
+  /* Luxury card */
+  .card-luxury {
+    @apply glass-dark rounded-lg p-6 shadow-2xl shadow-black/50;
+  }
+
+  /* Button base */
+  .btn-luxury {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
+    @apply border border-gold-500/30 text-gold-500;
+    @apply hover:bg-gold-500 hover:text-dark-950 hover:shadow-lg hover:shadow-gold-500/25;
+  }
+
+  .btn-luxury-primary {
+    @apply bg-gradient-to-r from-gold-500 to-gold-700 text-dark-950 font-semibold;
+    @apply hover:from-gold-400 hover:to-gold-600 hover:shadow-xl hover:shadow-gold-500/30;
+  }
+
+  /* Section base */
+  .section {
+    @apply min-h-screen px-4 py-20 md:px-8 lg:px-16;
+  }
+
+  /* Container */
+  .container-luxury {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+/* Utility styles */
+@layer utilities {
+  /* Animation utilities */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+
+  .animate-on-scroll.is-visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  /* Text shadow for readability */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
+  }
+
+  /* Gradient mask */
+  .gradient-mask-bottom {
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+
+  .gradient-mask-top {
+    mask-image: linear-gradient(to top, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 50%, transparent 100%);
+  }
+}
+
+/* Loading screen animation */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+.loading-ring {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Letter spacing for luxury feel */
+.luxury-letter-spacing {
+  letter-spacing: 0.1em;
+}
+
+.luxury-letter-spacing-wide {
+  letter-spacing: 0.2em;
+}
