@@ -10,9 +10,10 @@ export default defineConfig(({ mode }) => {
   return {
     server: {
       host: '0.0.0.0',
-      port: 5173
+      port: 5173,
+      allowedHosts: true
     },
-    base: env.BASE_URL || '/undangan-asratul-fitri/',
+    base: mode === 'production' ? (env.BASE_URL || '/undangan-asratul-fitri/') : '/',
     plugins: [
       vue(),
       AutoImport({
