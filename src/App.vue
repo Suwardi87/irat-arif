@@ -288,7 +288,7 @@ Pesan: ${rsvpData.value.message || 'Terima kasih!'}`
         <p class="map-title">Lokasi Acara</p>
         <div class="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.489785!2d100.422985!3d-0.439436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid"
+            src="https://www.google.com/maps/dir/-0.4394357,100.4229851/-0.439439,100.4229851/@-0.4390884,100.4227336,233m/data=!3m1!1e3!4m4!4m3!1m0!1m1!4e1?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
             class="map-frame"
             allowfullscreen
             loading="lazy"
@@ -296,7 +296,7 @@ Pesan: ${rsvpData.value.message || 'Terima kasih!'}`
           ></iframe>
         </div>
         <a
-          href="https://www.google.com/maps/search/?api=1&query=-0.4394356910359764,100.42298507887901"
+          href="https://www.google.com/maps/dir/-0.4394357,100.4229851/-0.439439,100.4229851/@-0.4390884,100.4227336,233m/data=!3m1!1e3!4m4!4m3!1m0!1m1!4e1?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           class="map-btn"
         >
