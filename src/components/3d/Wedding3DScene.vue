@@ -25,7 +25,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   theme: 'gold',
   intensity: 0.8,
-  enableZoom: true,
+  enableZoom: false, // Disable zoom to allow page scroll
   autoRotate: true,
   autoRotateSpeed: 0.5,
   enableControls: true

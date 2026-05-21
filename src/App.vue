@@ -98,6 +98,14 @@ function scrollToSection(id: string) {
     <span class="music-icon">{{ isPlaying ? '♪' : '♫' }}</span>
   </button>
 
+  <!-- Floating Open Button (always visible) -->
+  <Transition name="bounce-up">
+    <button v-if="!isLoading" @click="showDigitalCard = true" class="fab-open">
+      <span class="fab-icon">💌</span>
+      <span class="fab-text">Buka Undangan</span>
+    </button>
+  </Transition>
+
   <!-- Main Scrollable UI -->
   <div class="invitation-wrapper" :class="{ 'blur-bg': showDigitalCard || showGallery }">
     <!-- Hero Section: Front Cover Style (contoh-1) -->
@@ -404,6 +412,44 @@ body {
 .music-btn { position: fixed; bottom: 20px; right: 20px; width: 44px; height: 44px; border-radius: 50%; background: #d4af37; border: none; color: white; cursor: pointer; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
 .music-btn.playing { animation: pulse-ring 2s infinite; }
 @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); } }
+
+/* Floating Open Button */
+.fab-open {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #d4af37 0%, #b8952d 100%);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 99;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  animation: float-pulse 2s ease-in-out infinite;
+}
+
+.fab-icon { font-size: 20px; }
+.fab-text { letter-spacing: 1px; }
+
+@keyframes float-pulse {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-5px); }
+}
+
+.bounce-up-enter-active { animation: bounceIn 0.6s ease-out; }
+
+@keyframes bounceIn {
+  0% { transform: translateX(-50%) scale(0) translateY(100px); opacity: 0; }
+  50% { transform: translateX(-50%) scale(1.1) translateY(0); }
+  100% { transform: translateX(-50%) scale(1) translateY(0); opacity: 1; }
+}
 
 @media (max-width: 640px) {
   .hero-paper .paper-surface { height: 90vh; }
