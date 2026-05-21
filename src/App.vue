@@ -146,31 +146,10 @@ function scrollToTop() {
           <div class="anime-couple">
             <div class="couple-illustration">
               <img
-                src="/images/bride-cartoon.png"
+                src="/images/bride-cartoon.svg"
                 alt="Irat"
                 class="bride-img"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
               />
-              <!-- Fallback CSS illustration -->
-              <div class="anime-character bride-anime fallback-anime" style="display: none;">
-                <div class="anime-head">
-                  <div class="anime-face">
-                    <div class="anime-eyes">
-                      <div class="eye left"></div>
-                      <div class="eye right"></div>
-                    </div>
-                    <div class="anime-blush"></div>
-                    <div class="anime-mouth smile"></div>
-                  </div>
-                  <div class="anime-hijab">
-                    <div class="hijab-main"></div>
-                  </div>
-                </div>
-                <div class="anime-body">
-                  <div class="anime-dress"></div>
-                </div>
-                <div class="name-tag bride-tag">Irat</div>
-              </div>
             </div>
 
             <div class="anime-heart">
@@ -179,37 +158,11 @@ function scrollToTop() {
 
             <div class="couple-illustration">
               <img
-                src="/images/groom-cartoon.png"
+                src="/images/groom-cartoon.svg"
                 alt="Arif"
                 class="groom-img"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
               />
-              <!-- Fallback CSS illustration -->
-              <div class="anime-character groom-anime fallback-anime" style="display: none;">
-                <div class="anime-head">
-                  <div class="anime-face">
-                    <div class="anime-eyes">
-                      <div class="eye left"></div>
-                      <div class="eye right"></div>
-                    </div>
-                    <div class="anime-blush"></div>
-                    <div class="anime-mouth smile"></div>
-                  </div>
-                  <div class="anime-peci">
-                    <div class="peci-main"></div>
-                  </div>
-                </div>
-                <div class="anime-body">
-                  <div class="anime-shirt"></div>
-                </div>
-                <div class="name-tag groom-tag">Arif</div>
-              </div>
             </div>
-          </div>
-
-          <!-- Instructions for adding custom images (visible in development) -->
-          <div class="image-hint" style="display: none;">
-            💡 Letakkan gambar di: /public/images/bride-cartoon.png & /public/images/groom-cartoon.png
           </div>
 
           <div class="couple-names-large">
@@ -385,10 +338,10 @@ body {
 
 .bride-img,
 .groom-img {
-  width: 120px;
-  height: 150px;
+  width: 150px;
+  height: 180px;
   object-fit: contain;
-  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 5px 20px rgba(0,0,0,0.15));
   animation: floatCharacter 3s ease-in-out infinite;
 }
 
