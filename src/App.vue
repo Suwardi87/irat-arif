@@ -52,6 +52,15 @@ const showMusicBtn = ref(false)
 const isPlaying = ref(false)
 const audio = ref<HTMLAudioElement | null>(null)
 const showRsvp = ref(false)
+const activeMap = ref<'akad' | 'resepsi'>('akad')
+
+// Map URLs - Embed (untuk iframe)
+const mapAkad = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.4898!2d100.4229851!3d-0.4394357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd551e8e3b7f7b3%3A0x6b7f3e3e3e3e3e3e!2sMasjid%20Al-Wustha!5e0!3m2!1sid!2sid!4v1716000000000'
+const mapResepsi = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.4898!2d100.4229851!3d-0.4394357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd551e8e3b7f7b3%3A0x6b7f3e3e3e3e3e3e!2sNagari%20Paninjauan!5e0!3m2!1sid!2sid!4v1716000000000'
+
+// Map URLs - Directions (untuk tombol buka Google Maps)
+const directionAkad = 'https://www.google.com/maps/search/?api=1&query=Masjid+Al-Wustha+Hilir+Balai+Nagari+Paninjauan+Tanah+Datar'
+const directionResepsi = 'https://www.google.com/maps/search/?api=1&query=Anak+Kayu+Jorong+Tabubaraie+Nagari+Paninjauan+Tanah+Datar'
 const rsvpData = ref({
   name: '',
   attendance: 'hadir',
@@ -286,18 +295,21 @@ Pesan: ${rsvpData.value.message || 'Terima kasih!'}`
     <section class="map-section">
       <div class="map-card">
         <p class="map-title">Lokasi Acara</p>
+        <div class="map-tabs">
+          <button @click="activeMap = 'akad'" :class="{ active: activeMap === 'akad' }" class="map-tab">🕌 Akad Nikah</button>
+          <button @click="activeMap = 'resepsi'" :class="{ active: activeMap === 'resepsi' }" class="map-tab">🎊 Resepsi</button>
+        </div>
         <div class="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.4898!2d100.4229851!3d-0.4394357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMjYnMjEuOSJOIDEwMMKwMjUnMzIuNyJF!5e0!3m2!1sid!2sid!4v1716000000000!5m2!1sid!2sid"
+            :src="activeMap === 'akad' ? mapAkad : mapResepsi"
             class="map-frame"
-            style="border:0;"
-            allowfullscreen=""
+            allowfullscreen
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
         <a
-          href="https://www.google.com/maps/dir/-0.4394357,100.4229851/-0.439439,100.4229851/@-0.4390884,100.4227336,233m/data=!3m1!1e3!4m4!4m3!1m0!1m1!4e1?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+          :href="activeMap === 'akad' ? directionAkad : directionResepsi"
           target="_blank"
           class="map-btn"
         >
@@ -305,7 +317,7 @@ Pesan: ${rsvpData.value.message || 'Terima kasih!'}`
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
             <circle cx="12" cy="10" r="3"/>
           </svg>
-          Buka Google Maps
+          {{ activeMap === 'akad' ? 'Petunjuk ke Masjid Al-Wustha' : 'Petunjuk ke Anak Kayu' }}
         </a>
       </div>
     </section>
@@ -827,7 +839,35 @@ body {
   text-align: center;
   font-size: 18px;
   color: var(--gold);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+
+.map-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.map-tab {
+  flex: 1;
+  padding: 12px;
+  background: var(--bg-cream);
+  border: 1px solid rgba(201, 169, 98, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.map-tab:hover {
+  background: rgba(201, 169, 98, 0.1);
+}
+
+.map-tab.active {
+  background: var(--gold);
+  color: white;
+  border-color: var(--gold);
 }
 
 .map-container {
