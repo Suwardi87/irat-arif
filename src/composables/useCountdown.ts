@@ -1,4 +1,4 @@
-import { ref, computed, onUnmounted, type Ref } from 'vue'
+import { ref, computed, onUnmounted } from 'vue'
 import { differenceInSeconds, differenceInDays, differenceInHours, differenceInMinutes } from 'date-fns'
 import type { UseCountdownReturn } from '@/types'
 

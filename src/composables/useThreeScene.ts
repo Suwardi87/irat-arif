@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, type Ref } from 'vue'
+import { ref, onUnmounted } from 'vue'
 import * as THREE from 'three'
 import type { SceneConfig, CameraConfig, LightingConfig, UseThreeSceneReturn } from '@/types'
 
@@ -352,7 +352,7 @@ export function isWebGLAvailable(): boolean {
   try {
     const canvas = document.createElement('canvas')
     return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')))
-  } catch (e) {
+  } catch {
     return false
   }
 }

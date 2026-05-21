@@ -78,7 +78,7 @@ function skip() {
 }
 
 // Compute ring size based on viewport
-const ringSize = computed(() => {
+const _ringSize = computed(() => {
   if (typeof window !== 'undefined') {
     return Math.min(window.innerWidth, window.innerHeight) * 0.3
   }

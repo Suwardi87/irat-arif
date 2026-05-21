@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, onUnmounted, nextTick } from 'vue'
-import BaseButton from './BaseButton.vue'
 
 /**
  * BaseModal - Modal/Dialog component

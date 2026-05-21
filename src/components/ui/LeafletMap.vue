@@ -43,7 +43,6 @@ const mapContainer = ref<HTMLElement | null>(null)
 const showRoute = ref(false)
 const isLocating = ref(false)
 const isCalculatingRoute = ref(false)
-const directionsPanel = ref<HTMLElement | null>(null)
 const routeInfo = ref<{ distance: string; time: string } | null>(null)
 
 let map: L.Map | null = null

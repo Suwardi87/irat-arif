@@ -43,12 +43,28 @@ export default defineConfig(({ mode }) => {
     build: {
       target: 'es2020',
       minify: 'terser',
+      chunkSizeWarningLimit: 1000,
       rollupOptions: {
         output: {
-          manualChunks: {
-            'three': ['three'],
-            'gsap': ['gsap'],
-            'vue-vendor': ['vue', 'vue-router', 'pinia']
+          manualChunks: (id) => {
+            if (id.includes('node_modules/three')) {
+              return 'three'
+            }
+            if (id.includes('node_modules/gsap')) {
+              return 'gsap'
+            }
+            if (id.includes('node_modules/vue') || id.includes('node_modules/vue-router') || id.includes('node_modules/pinia')) {
+              return 'vue-vendor'
+            }
+            if (id.includes('node_modules/@vueuse')) {
+              return 'vueuse'
+            }
+            if (id.includes('node_modules/leaflet')) {
+              return 'leaflet'
+            }
+            if (id.includes('node_modules/date-fns')) {
+              return 'date-fns'
+            }
           }
         }
       }

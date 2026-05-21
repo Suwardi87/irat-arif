@@ -41,7 +41,7 @@ const emit = defineEmits<{
 
 const chatContainer = ref<HTMLElement | null>(null)
 const typingIndicator = ref<HTMLElement | null>(null)
-const bubbles = ref<HTMLElement[]>([])
+const _bubbles = ref<HTMLElement[]>([])
 
 // WhatsApp colors
 const colors = {

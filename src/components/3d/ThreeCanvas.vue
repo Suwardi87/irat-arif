@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { useThreeScene } from '@/composables/useThreeScene'
 import type { SceneConfig, CameraConfig, LightingConfig } from '@/types'
 

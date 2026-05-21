@@ -16,7 +16,7 @@ import Wedding3DScene from '@/components/3d/Wedding3DScene.vue'
 import { useCountdown } from '@/composables/useCountdown'
 import { useAnimation } from '@/composables/useAnimation'
 import { useGuestName } from '@/composables/useGuestName'
-import { useInvitationData, type InvitationData } from '@/composables/useInvitationData'
+import { useInvitationData } from '@/composables/useInvitationData'
 
 // Disable automatic attrs inheritance since we have multiple root elements
 defineOptions({
@@ -50,7 +50,7 @@ const showWaRsvpModal = ref(false)
 // Composables
 const { days, hours, minutes, seconds, start } = useCountdown()
 const { fadeIn } = useAnimation()
-const { guestName, isPersonalized, greeting, openingText } = useGuestName()
+const { isPersonalized, greeting, openingText } = useGuestName()
 const {
   data: invitationData,
   loadData,

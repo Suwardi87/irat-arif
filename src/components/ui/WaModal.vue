@@ -127,7 +127,7 @@ function onTouchMove(e: TouchEvent) {
   }
 }
 
-function onTouchEnd(e: TouchEvent) {
+function onTouchEnd(_e: TouchEvent) {
   if (!isDragging || !contentRef.value) return
   isDragging = false
 

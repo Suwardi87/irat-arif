@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import WaModal from './WaModal.vue'
 import WaChatBubble from './WaChatBubble.vue'
-import BaseButton from '@/components/base/BaseButton.vue'
 
 /**
  * WaRsvpModal - WhatsApp-style RSVP modal

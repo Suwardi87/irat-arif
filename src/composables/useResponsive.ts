@@ -1,4 +1,4 @@
-import { ref, computed, onMounted, onUnmounted, type Ref } from 'vue'
+import { computed } from 'vue'
 import { useMediaQuery, useWindowSize, useDevicePixelRatio } from '@vueuse/core'
 import type { UseResponsiveReturn } from '@/types'
 
@@ -41,7 +41,7 @@ export function useResponsive(): UseResponsiveReturn {
   const height = computed(() => windowHeight.value)
 
   // Media queries for each breakpoint
-  const isXs = useMediaQuery(`(min-width: ${BREAKPOINTS.xs}px)`)
+  const _isXs = useMediaQuery(`(min-width: ${BREAKPOINTS.xs}px)`)
   const isSm = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`)
   const isMd = useMediaQuery(`(min-width: ${BREAKPOINTS.md}px)`)
   const isLg = useMediaQuery(`(min-width: ${BREAKPOINTS.lg}px)`)

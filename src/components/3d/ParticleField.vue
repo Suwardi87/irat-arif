@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, watch, type Ref } from 'vue'
+import { ref, onUnmounted } from 'vue'
 import * as THREE from 'three'
 import { createGoldParticleTexture } from '@/composables/useThreeScene'
-import type { ParticleConfig } from '@/types'
 
 /**
  * ParticleField - Gold Floating Particles Component
