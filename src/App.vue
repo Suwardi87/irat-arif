@@ -437,9 +437,61 @@ body {
 }
 
 /* Loader */
-.loader { position: fixed; inset: 0; background: #fdfaf3; z-index: 1000; display: flex; align-items: center; justify-content: center; }
-.loader-ring { width: 50px; height: 50px; border: 2px solid #eee; border-top-color: #d4af37; border-radius: 50%; animation: spin 1s linear infinite; margin: 20px auto; }
-@keyframes spin { to { transform: rotate(360deg); } }
+.loader {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #1a4d2e 0%, #0c2616 100%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-content {
+  text-align: center;
+}
+
+.loader-bismillah {
+  font-family: 'Amiri', serif;
+  font-size: clamp(24px, 5vw, 36px);
+  color: #d4af37;
+  margin-bottom: 30px;
+  text-shadow: 0 2px 10px rgba(201, 169, 98, 0.3);
+  animation: fadeInUp 1s ease-out;
+}
+
+.loader-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+.loader-ring {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(212, 175, 55, 0.2);
+  border-top-color: #d4af37;
+  border-radius: 50%;
+  animation: spin 1s linear infinite, fadeInUp 0.8s ease-out 0.2s backwards;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* Music Btn */
 .music-btn { position: fixed; bottom: 20px; right: 20px; width: 44px; height: 44px; border-radius: 50%; background: #d4af37; border: none; color: white; cursor: pointer; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
