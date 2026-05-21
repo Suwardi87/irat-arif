@@ -9,9 +9,22 @@ const props = defineProps<{
 const emit = defineEmits(['close'])
 
 const activePage = ref(1)
+const isAnimating = ref(false)
 
 function close() {
   emit('close')
+}
+
+function goToPage(page: number) {
+  if (page !== activePage.value && !isAnimating.value) {
+    isAnimating.value = true
+    setTimeout(() => {
+      activePage.value = page
+      setTimeout(() => {
+        isAnimating.value = false
+      }, 600)
+    }, 300)
+  }
 }
 </script>
 
@@ -26,118 +39,130 @@ function close() {
           </svg>
         </button>
 
-        <div class="paper-card">
-          <!-- Navigation -->
-          <div class="card-nav">
-            <button @click="activePage = 1" :class="{ active: activePage === 1 }">Halaman 1</button>
-            <button @click="activePage = 2" :class="{ active: activePage === 2 }">Denah Lokasi</button>
-          </div>
+        <!-- Multiple Pages Stack -->
+        <div class="book-container">
+          <!-- Back Pages (decorative layers) -->
+          <div class="page-sheet page-back-3"></div>
+          <div class="page-sheet page-back-2"></div>
+          <div class="page-sheet page-back-1"></div>
 
-          <!-- Page 1: Invitation Content -->
-          <div v-if="activePage === 1" class="page-content">
-            <div class="floral-top-left"></div>
-            <div class="floral-top-right"></div>
-
-            <div class="card-content">
-              <div class="names-header">
-                <h1 class="script-font">Irat & Arif</h1>
-              </div>
-
-              <div class="greeting-section">
-                <p class="bismillah-text">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
-                <p class="opening-text">
-                  Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan.
-                  Ya Allah, perkenankanlah kami merangkaikan kasih sayang yang Kau ciptakan diantara putra-putri kami:
-                </p>
-              </div>
-
-              <div class="couple-details">
-                <div class="person">
-                  <h2 class="full-name">{{ coupleData.bride.fullName }}</h2>
-                  <p class="parents">Putri dari Bapak {{ coupleData.bride.father }} dan Ibu {{ coupleData.bride.mother }}</p>
-                </div>
-
-                <div class="rings-icon">
-                  <span class="emoji-rings">💍</span>
-                </div>
-
-                <div class="person">
-                  <h2 class="full-name">{{ coupleData.groom.fullName }}</h2>
-                  <p class="parents">Putra dari Bapak {{ coupleData.groom.father }} dan Ibu {{ coupleData.groom.mother }}</p>
-                </div>
-              </div>
-
-              <div class="event-details-paper">
-                <div class="event-card akad">
-                  <div class="date-badge">
-                    <span class="day">JUM'AT</span>
-                    <span class="date">05</span>
-                    <span class="month">JUNI 2026</span>
-                  </div>
-                  <div class="info">
-                    <h3>Akad Nikah</h3>
-                    <p>Pukul: 14.00 WIB s/d Selesai</p>
-                    <p>Tempat: Masjid Al-Wustha Hilir Balai</p>
-                  </div>
-                </div>
-
-                <div class="event-card resepsi">
-                  <div class="date-badge">
-                    <span class="day">MINGGU</span>
-                    <span class="date">07</span>
-                    <span class="month">JUNI 2026</span>
-                  </div>
-                  <div class="info">
-                    <h3>RESEPSI</h3>
-                    <p>Pukul: 10.00 WIB s/d Selesai</p>
-                    <p>Tempat: Anak Kayu, Jorong Tabu Baraie</p>
-                  </div>
-                </div>
-              </div>
-              
-              <p class="closing-greeting">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+          <!-- Main Content Card -->
+          <div class="paper-card">
+            <!-- Navigation -->
+            <div class="card-nav">
+              <button @click="goToPage(1)" :class="{ active: activePage === 1 }">Halaman 1</button>
+              <button @click="goToPage(2)" :class="{ active: activePage === 2 }">Denah Lokasi</button>
             </div>
-            <div class="floral-bottom-right"></div>
-          </div>
 
-          <!-- Page 2: Denah Lokasi -->
-          <div v-if="activePage === 2" class="page-content denah-page">
-            <div class="floral-top-left"></div>
-            
-            <div class="card-content">
-              <div class="denah-header">
-                <div class="denah-icon">📍</div>
-                <h2>Denah Lokasi</h2>
-              </div>
+            <!-- Page Content with Turn Animation -->
+            <Transition name="page-turn" mode="out-in">
+              <!-- Page 1: Invitation Content -->
+              <div v-if="activePage === 1" key="page1" class="page-content">
+                <div class="floral-top-left"></div>
+                <div class="floral-top-right"></div>
 
-              <div class="map-illustration">
-                <div class="map-box">
-                  <div class="road-main"></div>
-                  <div class="road-branch"></div>
-                  <div class="marker-location pulse">
-                    <div class="label-pesta">LOKASI PESTA</div>
+                <div class="card-content">
+                  <div class="names-header">
+                    <h1 class="script-font">Irat & Arif</h1>
                   </div>
-                  <div class="road-label bukittinggi">DARI BUKITTINGGI</div>
-                  <div class="road-label padangpanjang">SIMP. 8 PADANG PANJANG</div>
+
+                  <div class="greeting-section">
+                    <p class="bismillah-text">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                    <p class="opening-text">
+                      Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan.
+                      Ya Allah, perkenankanlah kami merangkaikan kasih sayang yang Kau ciptakan diantara putra-putri kami:
+                    </p>
+                  </div>
+
+                  <div class="couple-details">
+                    <div class="person">
+                      <h2 class="full-name">{{ coupleData.bride.fullName }}</h2>
+                      <p class="parents">Putri dari Bapak {{ coupleData.bride.father }} dan Ibu {{ coupleData.bride.mother }}</p>
+                    </div>
+
+                    <div class="rings-icon">
+                      <span class="emoji-rings">💍</span>
+                    </div>
+
+                    <div class="person">
+                      <h2 class="full-name">{{ coupleData.groom.fullName }}</h2>
+                      <p class="parents">Putra dari Bapak {{ coupleData.groom.father }} dan Ibu {{ coupleData.groom.mother }}</p>
+                    </div>
+                  </div>
+
+                  <div class="event-details-paper">
+                    <div class="event-card akad">
+                      <div class="date-badge">
+                        <span class="day">JUM'AT</span>
+                        <span class="date">05</span>
+                        <span class="month">JUNI 2026</span>
+                      </div>
+                      <div class="info">
+                        <h3>Akad Nikah</h3>
+                        <p>Pukul: 14.00 WIB s/d Selesai</p>
+                        <p>Tempat: Masjid Al-Wustha Hilir Balai</p>
+                      </div>
+                    </div>
+
+                    <div class="event-card resepsi">
+                      <div class="date-badge">
+                        <span class="day">MINGGU</span>
+                        <span class="date">07</span>
+                        <span class="month">JUNI 2026</span>
+                      </div>
+                      <div class="info">
+                        <h3>RESEPSI</h3>
+                        <p>Pukul: 10.00 WIB s/d Selesai</p>
+                        <p>Tempat: Anak Kayu, Jorong Tabu Baraie</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="closing-greeting">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
                 </div>
+                <div class="floral-bottom-right"></div>
               </div>
 
-              <div class="qr-section">
-                <div class="qr-box-container">
-                  <div class="qr-box">
-                    <div class="qr-pixel" v-for="i in 16" :key="i"></div>
+              <!-- Page 2: Denah Lokasi -->
+              <div v-else key="page2" class="page-content denah-page">
+                <div class="floral-top-left"></div>
+
+                <div class="card-content">
+                  <div class="denah-header">
+                    <div class="denah-icon">📍</div>
+                    <h2>Denah Lokasi</h2>
+                  </div>
+
+                  <div class="map-illustration">
+                    <div class="map-box">
+                      <div class="road-main"></div>
+                      <div class="road-branch"></div>
+                      <div class="marker-location pulse">
+                        <div class="label-pesta">LOKASI PESTA</div>
+                      </div>
+                      <div class="road-label bukittinggi">DARI BUKITTINGGI</div>
+                      <div class="road-label padangpanjang">SIMP. 8 PADANG PANJANG</div>
+                    </div>
+                  </div>
+
+                  <div class="qr-section">
+                    <div class="qr-box-container">
+                      <div class="qr-box">
+                        <div class="qr-pixel" v-for="i in 16" :key="i"></div>
+                      </div>
+                    </div>
+                    <p>SCAN LOCATION</p>
+                  </div>
+
+                  <div class="recipient-box">
+                    <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                    <div class="recipient-line">
+                      <span>Nama Tamu Undangan</span>
+                    </div>
                   </div>
                 </div>
-                <p>SCAN LOCATION</p>
               </div>
-
-              <div class="recipient-box">
-                <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-                <div class="recipient-line">
-                  <span>Nama Tamu Undangan</span>
-                </div>
-              </div>
-            </div>
+            </Transition>
           </div>
         </div>
       </div>
@@ -157,7 +182,7 @@ function close() {
   overflow-y: auto;
   padding: 20px;
   backdrop-filter: blur(10px);
-  perspective: 2000px; /* For 3D effect */
+  perspective: 2500px;
 }
 
 .digital-card-container {
@@ -168,11 +193,46 @@ function close() {
   transform-style: preserve-3d;
 }
 
+.book-container {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* Decorative Page Sheets Behind */
+.page-sheet {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #f5f0e6 0%, #e8e0d0 100%);
+  border-radius: 2px;
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.page-back-1 {
+  transform: rotateY(8deg) translateZ(-10px) translateX(8px);
+  box-shadow: -5px 5px 20px rgba(0,0,0,0.15);
+}
+
+.page-back-2 {
+  transform: rotateY(12deg) translateZ(-20px) translateX(14px);
+  box-shadow: -8px 8px 25px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #f0ebe0 0%, #e0d8c8 100%);
+}
+
+.page-back-3 {
+  transform: rotateY(16deg) translateZ(-30px) translateX(20px);
+  box-shadow: -10px 10px 30px rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, #ebe6dc 0%, #d8d0c0 100%);
+}
+
 .paper-card {
   background: #fdfaf3;
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
   border-radius: 2px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+  box-shadow:
+    -2px 0 5px rgba(0,0,0,0.1),
+    0 20px 60px rgba(0,0,0,0.4),
+    0 0 0 1px rgba(212, 175, 55, 0.1);
   position: relative;
   color: #333;
   min-height: 80vh;
@@ -180,6 +240,40 @@ function close() {
   flex-direction: column;
   transform-style: preserve-3d;
   transform-origin: left center;
+  z-index: 10;
+}
+
+/* Page spine effect */
+.paper-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to right,
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0.08) 30%,
+    rgba(0,0,0,0.02) 60%,
+    transparent 100%
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Page edge shadow */
+.paper-card::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  background: linear-gradient(to left,
+    rgba(0,0,0,0.03) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 .card-nav {
@@ -189,6 +283,8 @@ function close() {
   padding: 15px;
   background: rgba(0,0,0,0.03);
   border-bottom: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 20;
 }
 
 .card-nav button {
@@ -351,6 +447,7 @@ function close() {
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
   color: #333;
+  z-index: 100;
 }
 
 .pulse { animation: pulse 2s infinite; }
@@ -362,7 +459,7 @@ function close() {
 
 /* Book Opening Animation */
 .book-open-enter-active {
-  animation: bookOpen 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: bookOpen 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 .book-open-leave-active {
@@ -372,29 +469,29 @@ function close() {
 @keyframes bookOpen {
   0% {
     opacity: 0;
-    transform: rotateY(-90deg) scaleX(0) translateX(-50px);
+    transform: rotateY(-90deg) scaleX(0.3) translateX(-100px);
+    filter: blur(8px);
+  }
+  15% {
+    opacity: 0.2;
+    transform: rotateY(-70deg) scaleX(0.5) translateX(-70px);
     filter: blur(5px);
   }
-  20% {
-    opacity: 0.3;
-    transform: rotateY(-60deg) scaleX(0.3) translateX(-30px);
-    filter: blur(3px);
+  30% {
+    opacity: 0.5;
+    transform: rotateY(-40deg) scaleX(0.7) translateX(-40px);
+    filter: blur(2px);
   }
-  40% {
-    opacity: 0.7;
-    transform: rotateY(-20deg) scaleX(0.7) translateX(-10px);
-    filter: blur(1px);
-  }
-  60% {
-    opacity: 1;
-    transform: rotateY(15deg) scaleX(1.08) translateX(5px);
+  50% {
+    opacity: 0.8;
+    transform: rotateY(-10deg) scaleX(0.95) translateX(-10px);
     filter: blur(0);
   }
-  75% {
-    transform: rotateY(-8deg) scaleX(1.03) translateX(2px);
+  65% {
+    transform: rotateY(8deg) scaleX(1.05) translateX(5px);
   }
-  90% {
-    transform: rotateY(3deg) scaleX(1.01);
+  80% {
+    transform: rotateY(-4deg) scaleX(1.02) translateX(2px);
   }
   100% {
     opacity: 1;
@@ -407,46 +504,48 @@ function close() {
     opacity: 1;
     transform: rotateY(0deg) scaleX(1);
   }
-  40% {
-    transform: rotateY(20deg) scaleX(0.95);
+  30% {
+    transform: rotateY(15deg) scaleX(0.95);
   }
   100% {
     opacity: 0;
-    transform: rotateY(-90deg) scaleX(0) translateX(-50px);
-    filter: blur(5px);
+    transform: rotateY(-90deg) scaleX(0.3) translateX(-100px);
+    filter: blur(8px);
   }
 }
 
-/* Page spine effect */
-.paper-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 30px;
-  background: linear-gradient(to right,
-    rgba(0,0,0,0.15) 0%,
-    rgba(0,0,0,0.05) 20%,
-    transparent 100%
-  );
-  z-index: 10;
-  pointer-events: none;
+/* Page Turn Animation */
+.page-turn-enter-active {
+  animation: pageTurnIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
-/* Page shadow effect */
-.paper-card::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 20px;
-  background: linear-gradient(to left,
-    rgba(0,0,0,0.02) 0%,
-    transparent 100%
-  );
-  pointer-events: none;
+.page-turn-leave-active {
+  animation: pageTurnOut 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes pageTurnIn {
+  0% {
+    opacity: 0;
+    transform: rotateY(-30deg) translateX(-30px);
+  }
+  60% {
+    transform: rotateY(5deg) translateX(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0);
+  }
+}
+
+@keyframes pageTurnOut {
+  0% {
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateY(30deg) translateX(30px);
+  }
 }
 
 @media (max-width: 640px) {
