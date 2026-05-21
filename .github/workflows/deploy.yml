@@ -7,12 +7,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -27,8 +21,7 @@ jobs:
       - name: Install & Build
         run: |
           npm ci
-          npx vue-tsc --noEmit
-          npx vite build --base /undangan-asratul-fitri/
+          npm run build
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
