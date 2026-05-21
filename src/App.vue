@@ -4,14 +4,14 @@ import { ref, onMounted } from 'vue'
 // Data mempelai
 const coupleData = {
   bride: {
-    fullName: 'Asratul Fitri, S.Pd',
-    nickname: 'Fitri',
+    fullName: 'Asratul Fitri, A.md.',
+    nickname: 'Asratul Fitri',
     father: 'H. Ahmad',
     mother: 'Hj. Maryam'
   },
   groom: {
-    fullName: 'Suwardi, S.Kom',
-    nickname: 'Suwardi',
+    fullName: 'Arif Hidayatullah',
+    nickname: 'Arif',
     father: 'H. Hasan',
     mother: 'Hj. Aisyah'
   },
