@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250" width="200" height="250">
+  <defs>
+    <linearGradient id="dressGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4af37"/>
+      <stop offset="100%" style="stop-color:#b8952d"/>
+    </linearGradient>
+    <linearGradient id="hijabGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a9c6d"/>
+      <stop offset="100%" style="stop-color:#2d6a4a"/>
+    </linearGradient>
+  </defs>
+  <!-- Body/Dress -->
+  <ellipse cx="100" cy="210" rx="50" ry="45" fill="url(#dressGrad)"/>
+  <!-- Flower on dress -->
+  <text x="100" y="220" text-anchor="middle" font-size="20">🌸</text>
+  <!-- Head -->
+  <ellipse cx="100" cy="130" rx="35" ry="40" fill="#ffe4c4"/>
+  <!-- Hijab -->
+  <ellipse cx="100" cy="125" rx="40" ry="50" fill="url(#hijabGrad)"/>
+  <ellipse cx="100" cy="90" rx="30" ry="25" fill="url(#hijabGrad)"/>
+  <!-- Face -->
+  <ellipse cx="100" cy="125" rx="28" ry="30" fill="#ffe4c4"/>
+  <!-- Eyes -->
+  <ellipse cx="90" cy="120" rx="6" ry="8" fill="#2c1810"/>
+  <ellipse cx="110" cy="120" rx="6" ry="8" fill="#2c1810"/>
+  <circle cx="92" cy="118" r="2" fill="white"/>
+  <circle cx="112" cy="118" r="2" fill="white"/>
+  <!-- Blush -->
+  <ellipse cx="85" cy="130" rx="8" ry="4" fill="#ffb6c1" opacity="0.6"/>
+  <ellipse cx="115" cy="130" rx="8" ry="4" fill="#ffb6c1" opacity="0.6"/>
+  <!-- Smile -->
+  <path d="M 93 140 Q 100 148 107 140" stroke="#d4a5a5" stroke-width="2" fill="none"/>
+  <!-- Name -->
+  <text x="100" y="245" text-anchor="middle" font-family="Arial" font-size="14" fill="#1a4d2e" font-weight="bold">Irat</text>
+</svg>
