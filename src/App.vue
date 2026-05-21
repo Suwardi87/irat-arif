@@ -19,14 +19,14 @@ const coupleData = {
     name: 'Pernikahan',
     date: 'Minggu, 14 Desember 2025',
     time: '09:00 - Selesai',
-    venue: 'Masjid Agung Al-Azhar',
-    address: 'Jl. Sisingamangaraja, Kebayoran Baru, Jakarta Selatan'
+    venue: 'Masjid Raya',
+    address: 'Sumatera Barat'
   },
   reception: {
     date: 'Minggu, 14 Desember 2025',
     time: '11:00 - Selesai',
-    venue: 'Gedung Serbaguna Al-Azhar',
-    address: 'Jl. Sisingamangaraja, Kebayoran Baru, Jakarta Selatan'
+    venue: 'Gedung Serbaguna',
+    address: 'Sumatera Barat'
   }
 }
 
@@ -236,7 +236,7 @@ Pesan: ${rsvpData.value.message || 'Terima kasih!'}`
 
         <div class="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126907.08669786445!2d106.789156!3d-6.2293867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sMasjid%20Agung%20Al-Azhar!5e0!3m2!1sid!2sid!4v1732567478234!5m2!1sid!2sid"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.489785!2d100.422985!3d-0.439436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid"
             class="map-frame"
             allowfullscreen
             loading="lazy"
@@ -245,7 +245,7 @@ Pesan: ${rsvpData.value.message || 'Terima kasih!'}`
         </div>
 
         <a
-          href="https://www.google.com/maps?q=Masjid+Agung+Al-Azhar"
+          href="https://www.google.com/maps/search/?api=1&query=-0.4394356910359764,100.42298507887901"
           target="_blank"
           class="map-btn"
         >
