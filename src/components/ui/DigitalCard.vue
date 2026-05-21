@@ -16,7 +16,7 @@ function close() {
 </script>
 
 <template>
-  <Transition name="slide-up">
+  <Transition name="book-open">
     <div v-if="show" class="digital-card-overlay">
       <div class="digital-card-container">
         <!-- Close Button -->
@@ -157,6 +157,7 @@ function close() {
   overflow-y: auto;
   padding: 20px;
   backdrop-filter: blur(10px);
+  perspective: 2000px; /* For 3D effect */
 }
 
 .digital-card-container {
@@ -164,6 +165,7 @@ function close() {
   width: 100%;
   max-width: 600px;
   margin: auto;
+  transform-style: preserve-3d;
 }
 
 .paper-card {
@@ -176,7 +178,8 @@ function close() {
   min-height: 80vh;
   display: flex;
   flex-direction: column;
-}
+  transform-style: preserve-3d;
+  transform-origin: left center;
 
 .card-nav {
   display: flex;
@@ -356,9 +359,94 @@ function close() {
   100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
 }
 
-.slide-up-enter-active, .slide-up-leave-active { transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-.slide-up-enter-from { opacity: 0; transform: translateY(150px) scale(0.9); }
-.slide-up-leave-to { opacity: 0; transform: translateY(150px) scale(0.9); }
+/* Book Opening Animation */
+.book-open-enter-active {
+  animation: bookOpen 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.book-open-leave-active {
+  animation: bookClose 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes bookOpen {
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg) scaleX(0) translateX(-50px);
+    filter: blur(5px);
+  }
+  20% {
+    opacity: 0.3;
+    transform: rotateY(-60deg) scaleX(0.3) translateX(-30px);
+    filter: blur(3px);
+  }
+  40% {
+    opacity: 0.7;
+    transform: rotateY(-20deg) scaleX(0.7) translateX(-10px);
+    filter: blur(1px);
+  }
+  60% {
+    opacity: 1;
+    transform: rotateY(15deg) scaleX(1.08) translateX(5px);
+    filter: blur(0);
+  }
+  75% {
+    transform: rotateY(-8deg) scaleX(1.03) translateX(2px);
+  }
+  90% {
+    transform: rotateY(3deg) scaleX(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) scaleX(1) translateX(0);
+  }
+}
+
+@keyframes bookClose {
+  0% {
+    opacity: 1;
+    transform: rotateY(0deg) scaleX(1);
+  }
+  40% {
+    transform: rotateY(20deg) scaleX(0.95);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateY(-90deg) scaleX(0) translateX(-50px);
+    filter: blur(5px);
+  }
+}
+
+/* Page spine effect */
+.paper-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  background: linear-gradient(to right,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.05) 20%,
+    transparent 100%
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Page shadow effect */
+.paper-card::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(to left,
+    rgba(0,0,0,0.02) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
 
 @media (max-width: 640px) {
   .page-content { padding: 30px 20px; }
