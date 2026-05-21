@@ -27,7 +27,8 @@ jobs:
       - name: Install & Build
         run: |
           npm ci
-          BASE_URL=/undangan-asratul-fitri/ npm run build
+          npx vue-tsc --noEmit
+          npx vite build --base /undangan-asratul-fitri/
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
