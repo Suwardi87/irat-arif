@@ -120,7 +120,7 @@ function createInteractiveCard() {
     ctx.font = 'italic 150px "Great Vibes", cursive'
     ctx.shadowBlur = 20
     ctx.shadowColor = 'rgba(201, 169, 98, 0.5)'
-    ctx.fillText('Putri & Putra', canvas.width/2, canvas.height/2 + 50)
+    ctx.fillText('Irat & Arif', canvas.width/2, canvas.height/2 + 50)
     
     // Date
     ctx.shadowBlur = 0
