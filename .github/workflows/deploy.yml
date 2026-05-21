@@ -27,7 +27,7 @@ jobs:
       - name: Install & Build
         run: |
           npm ci
-          npm run build -- --base /undangan-asratul-fitri/
+          BASE_URL=/undangan-asratul-fitri/ npm run build
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
