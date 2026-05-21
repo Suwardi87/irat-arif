@@ -56,10 +56,13 @@ onMounted(() => {
     isLoading.value = false
   }, 2000)
 
-  // Show/hide back to top button
-  window.addEventListener('scroll', () => {
-    showBackToTop.value = window.scrollY > 400
-  })
+  // Show/hide back to top button - more reliable
+  const handleScroll = () => {
+    showBackToTop.value = window.scrollY > 300
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  handleScroll() // Initial check
 })
 
 function toggleMusic() {
@@ -80,7 +83,10 @@ function scrollToSection(id: string) {
 }
 
 function scrollToTop() {
+  // Try multiple methods for better compatibility
   window.scrollTo({ top: 0, behavior: 'smooth' })
+  // Fallback
+  document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })
 }
 </script>
 
@@ -128,7 +134,7 @@ function scrollToTop() {
   <!-- Main Scrollable UI -->
   <div class="invitation-wrapper" :class="{ 'blur-bg': showDigitalCard || showGallery }">
     <!-- Hero Section: Front Cover Style (contoh-1) -->
-    <section class="hero-paper">
+    <section id="hero" class="hero-paper">
       <div class="paper-surface">
         <div class="floral-top-left"></div>
         <div class="floral-top-right"></div>
@@ -206,6 +212,14 @@ function scrollToTop() {
               </div>
             </div>
           </div>
+
+          <!-- Back to Top in Section -->
+          <button @click="scrollToTop" class="back-to-top-section">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 19V5M5 12l7-7 7 7"/>
+            </svg>
+            Kembali ke Atas
+          </button>
         </div>
       </div>
     </section>
@@ -493,6 +507,33 @@ body {
 .back-to-top:hover {
   background: #b8952d;
   transform: translateY(-2px);
+}
+
+/* Back to Top Section Button */
+.back-to-top-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 250px;
+  margin: 30px auto 0;
+  padding: 12px 20px;
+  background: #1a4d2e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.back-to-top-section:hover {
+  background: #133a22;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 @media (max-width: 640px) {
