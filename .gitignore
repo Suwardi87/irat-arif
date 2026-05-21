@@ -31,3 +31,9 @@ dist-ssr
 # Build outputs
 .cache
 .temp
+
+# Tunneling binaries
+cloudflared
+cloudflared.deb
+ngrok
+ngrok-v3-stable-linux-amd64.tgz
