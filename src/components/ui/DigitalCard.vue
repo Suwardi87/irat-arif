@@ -180,6 +180,7 @@ function close() {
   flex-direction: column;
   transform-style: preserve-3d;
   transform-origin: left center;
+}
 
 .card-nav {
   display: flex;
