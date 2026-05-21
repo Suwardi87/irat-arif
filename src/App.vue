@@ -56,11 +56,11 @@ const activeMap = ref<'akad' | 'resepsi'>('akad')
 
 // Map URLs - Embed (untuk iframe)
 const mapAkad = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.4898!2d100.4229851!3d-0.4394357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd551e8e3b7f7b3%3A0x6b7f3e3e3e3e3e3e!2sMasjid%20Al-Wustha!5e0!3m2!1sid!2sid!4v1716000000000'
-const mapResepsi = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.4898!2d100.4229851!3d-0.4394357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd551e8e3b7f7b3%3A0x6b7f3e3e3e3e3e3e!2sNagari%20Paninjauan!5e0!3m2!1sid!2sid!4v1716000000000'
+const mapResepsi = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.2!2d100.4227512!3d-0.4386255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMjYnMTkuMSJOIDEwMMKwMjUnNDEuOSJF!5e0!3m2!1sid!2sid'
 
 // Map URLs - Directions (untuk tombol buka Google Maps)
 const directionAkad = 'https://www.google.com/maps/search/?api=1&query=Masjid+Al-Wustha+Hilir+Balai+Nagari+Paninjauan+Tanah+Datar'
-const directionResepsi = 'https://www.google.com/maps/search/?api=1&query=Anak+Kayu+Jorong+Tabubaraie+Nagari+Paninjauan+Tanah+Datar'
+const directionResepsi = 'https://www.google.com/maps/search/Anak+Kayu+Jorong+Tabubaraie+Nagari+Paninjauan+Tanah+Datar/@-0.4386255,100.4227512,398m/data=!3m1!1e3?entry=ttu'
 const rsvpData = ref({
   name: '',
   attendance: 'hadir',
