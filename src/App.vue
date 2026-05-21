@@ -487,7 +487,7 @@ body {
 /* Back to Top Button */
 .back-to-top {
   position: fixed;
-  bottom: 80px;
+  bottom: 140px;
   right: 20px;
   width: 44px;
   height: 44px;
