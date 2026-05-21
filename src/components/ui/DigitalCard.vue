@@ -76,7 +76,8 @@ function goToPage(page: number) {
 
                   <div class="couple-details">
                     <div class="person">
-                      <h2 class="full-name">{{ coupleData.bride.fullName }}</h2>
+                      <h2 class="nick-name">{{ coupleData.bride.nickname }}</h2>
+                      <p class="full-name-small">{{ coupleData.bride.fullName }}</p>
                       <p class="parents">Putri dari Bapak {{ coupleData.bride.father }} dan Ibu {{ coupleData.bride.mother }}</p>
                     </div>
 
@@ -85,7 +86,8 @@ function goToPage(page: number) {
                     </div>
 
                     <div class="person">
-                      <h2 class="full-name">{{ coupleData.groom.fullName }}</h2>
+                      <h2 class="nick-name">{{ coupleData.groom.nickname }}</h2>
+                      <p class="full-name-small">{{ coupleData.groom.fullName }}</p>
                       <p class="parents">Putra dari Bapak {{ coupleData.groom.father }} dan Ibu {{ coupleData.groom.mother }}</p>
                     </div>
                   </div>
@@ -342,6 +344,8 @@ function goToPage(page: number) {
 .opening-text { font-size: 11px; line-height: 1.8; color: #555; margin-bottom: 30px; }
 
 .full-name { font-family: 'Amiri', serif; font-size: 24px; color: #1a4d2e; margin-bottom: 5px; }
+.nick-name { font-size: 32px; color: #1a4d2e; margin-bottom: 2px; font-weight: bold; }
+.full-name-small { font-size: 14px; color: #d4af37; margin-bottom: 8px; }
 .parents { font-size: 11px; color: #777; }
 
 .event-details-paper { display: flex; flex-direction: column; gap: 15px; margin: 30px 0; }
@@ -551,6 +555,7 @@ function goToPage(page: number) {
 @media (max-width: 640px) {
   .page-content { padding: 30px 20px; }
   .script-font { font-size: 38px; }
-  .full-name { font-size: 20px; }
+  .nick-name { font-size: 24px; }
+  .full-name-small { font-size: 12px; }
 }
 </style>

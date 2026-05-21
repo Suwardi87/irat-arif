@@ -176,12 +176,14 @@ function scrollToTop() {
           </p>
 
           <div class="names-details">
-            <h2 class="name">{{ coupleData.bride.fullName }}</h2>
+            <h2 class="name">{{ coupleData.bride.nickname }}</h2>
+            <p class="name-full">{{ coupleData.bride.fullName }}</p>
             <p class="parents">Putri dari Bapak {{ coupleData.bride.father }} dan Ibu {{ coupleData.bride.mother }}</p>
-            
+
             <div class="rings-gold">💍</div>
-            
-            <h2 class="name">{{ coupleData.groom.fullName }}</h2>
+
+            <h2 class="name">{{ coupleData.groom.nickname }}</h2>
+            <p class="name-full">{{ coupleData.groom.fullName }}</p>
             <p class="parents">Putra dari Bapak {{ coupleData.groom.father }} dan Ibu {{ coupleData.groom.mother }}</p>
           </div>
 
@@ -383,7 +385,8 @@ body {
 }
 
 .opening-text { font-size: 13px; line-height: 1.8; color: #555; margin-bottom: 40px; }
-.names-details .name { font-size: 28px; color: #1a4d2e; margin-bottom: 5px; }
+.names-details .name { font-size: 32px; color: #1a4d2e; margin-bottom: 2px; font-weight: bold; }
+.names-details .name-full { font-size: 16px; color: #d4af37; margin-bottom: 8px; font-weight: normal; }
 .names-details .parents { font-size: 13px; color: #888; }
 .rings-gold { font-size: 32px; margin: 20px 0; }
 
