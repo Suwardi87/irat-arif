@@ -25,10 +25,10 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   theme: 'gold',
   intensity: 0.8,
-  enableZoom: false,
-  autoRotate: false,
-  autoRotateSpeed: 0.3,
-  enableControls: false
+  enableZoom: true,
+  autoRotate: true,
+  autoRotateSpeed: 0.5,
+  enableControls: true
 })
 
 const canvasContainer = ref<HTMLElement | null>(null)
@@ -325,19 +325,10 @@ function onResize() {
 .canvas-3d {
   width: 100%;
   height: 100%;
-  /* Default: no interaction, clicks pass through */
-  pointer-events: none;
+  cursor: grab;
 }
 
-/* Only enable interaction on desktop for 3D exploration */
-@media (min-width: 1024px) {
-  .canvas-3d {
-    pointer-events: auto;
-    cursor: grab;
-  }
-
-  .canvas-3d:active {
-    cursor: grabbing;
-  }
+.canvas-3d:active {
+  cursor: grabbing;
 }
 </style>

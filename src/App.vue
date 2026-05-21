@@ -243,6 +243,14 @@ body {
   text-align: center;
   padding: 40px;
   border-radius: 4px;
+  position: relative;
+  z-index: 15;
+}
+
+.hero-main-content {
+  position: relative;
+  z-index: 15;
+  width: 100%;
 }
 
 .irat-arif {
@@ -273,6 +281,8 @@ body {
   margin-top: 40px;
   width: 100%;
   max-width: 250px;
+  position: relative;
+  z-index: 20;
 }
 
 .btn-card, .btn-gallery {
@@ -289,6 +299,8 @@ body {
   text-transform: uppercase;
   font-size: 13px;
   letter-spacing: 1px;
+  position: relative;
+  z-index: 20;
 }
 
 .btn-gallery {
