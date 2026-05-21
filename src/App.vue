@@ -288,9 +288,10 @@ Pesan: ${rsvpData.value.message || 'Terima kasih!'}`
         <p class="map-title">Lokasi Acara</p>
         <div class="map-container">
           <iframe
-            src="https://www.google.com/maps/dir/-0.4394357,100.4229851/-0.439439,100.4229851/@-0.4390884,100.4227336,233m/data=!3m1!1e3!4m4!4m3!1m0!1m1!4e1?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.4898!2d100.4229851!3d-0.4394357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMjYnMjEuOSJOIDEwMMKwMjUnMzIuNyJF!5e0!3m2!1sid!2sid!4v1716000000000!5m2!1sid!2sid"
             class="map-frame"
-            allowfullscreen
+            style="border:0;"
+            allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
