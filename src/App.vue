@@ -1,28 +1,48 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
-// Data mempelai sesuai gambar
+// Data mempelai
 const coupleData = {
   bride: {
-    fullName: 'Putri Muslim A.md.',
+    fullName: 'Asratul Fitri A.Md',
     nickname: 'Putri',
-    title: 'Putri Muslim'
+    title: 'Putri Muslim',
+    father: 'Suhaimi',
+    mother: 'Asmi'
   },
   groom: {
-    fullName: 'Putra Muslim',
+    fullName: 'Arif Hidayatulah',
     nickname: 'Putra',
-    title: 'Putra Muslim'
+    title: 'Putra Muslim',
+    father: 'Amrizal',
+    mother: 'Ratna Juita'
   },
-  event: {
-    date: 'Sabtu, 27 Januari 2024',
-    day: 'Sabtu',
-    dateNum: 27,
-    month: 'Januari',
-    year: 2024,
-    time: '08.00 WIB',
-    venue: 'Masjid',
-    address: 'Sumatera Barat'
-  }
+  events: [
+    {
+      type: 'akad',
+      title: 'Akad Nikah',
+      day: 'Jumat',
+      date: '05 Juni 2026',
+      dateNum: 5,
+      month: 'Juni',
+      year: 2026,
+      time: '14.00 WIB s/d selesai',
+      venue: 'Masjid Al-Wustha Hilir Balai',
+      address: 'Nagari Paninjauan, Kec. X Koto, Tanah Datar'
+    },
+    {
+      type: 'resepsi',
+      title: 'Resepsi',
+      day: 'Minggu',
+      date: '07 Juni 2026',
+      dateNum: 7,
+      month: 'Juni',
+      year: 2026,
+      time: '10.00 WIB s/d selesai',
+      venue: 'Anak Kayu Jorong Tabubaraie',
+      address: 'Nagari Paninjauan, Kec. X Koto, Tanah Datar'
+    }
+  ]
 }
 
 // Countdown
@@ -49,7 +69,7 @@ onMounted(() => {
 })
 
 function updateCountdown() {
-  const target = new Date('2024-01-27T08:00:00').getTime()
+  const target = new Date('2026-06-05T14:00:00').getTime()
   const now = new Date().getTime()
   const diff = target - now
   if (diff > 0) {
@@ -121,18 +141,20 @@ Pesan: ${rsvpData.value.message || 'Terima kasih!'}`
         <div class="couple-names">
           <div class="couple-name-bride">
             <p class="couple-title">{{ coupleData.bride.title }}</p>
-            <h1>{{ coupleData.bride.fullName }}</h1>
+            <h1>{{ coupleData.bride.nickname }}</h1>
+            <p class="couple-small">{{ coupleData.bride.fullName }}</p>
           </div>
           <div class="ampersand">&</div>
           <div class="couple-name-groom">
             <p class="couple-title">{{ coupleData.groom.title }}</p>
-            <h1>{{ coupleData.groom.fullName }}</h1>
+            <h1>{{ coupleData.groom.nickname }}</h1>
+            <p class="couple-small">{{ coupleData.groom.fullName }}</p>
           </div>
         </div>
 
         <div class="event-info">
-          <p class="event-date">{{ coupleData.event.date }}</p>
-          <p class="event-time">{{ coupleData.event.time }}</p>
+          <p class="event-date">{{ coupleData.events[0].day }}, {{ coupleData.events[0].date }}</p>
+          <p class="event-time">{{ coupleData.events[0].time }}</p>
         </div>
 
         <button @click="scrollToSection('details')" class="open-btn">
@@ -155,10 +177,11 @@ Pesan: ${rsvpData.value.message || 'Terima kasih!'}`
         <div class="couple-section">
           <div class="couple-item">
             <div class="couple-circle">
-              <span class="couple-letter">P</span>
+              <span class="couple-letter">{{ coupleData.bride.nickname[0] }}</span>
             </div>
             <p class="couple-fullname">{{ coupleData.bride.fullName }}</p>
-            <p class="couple-label">Putri Muslim</p>
+            <p class="couple-label">{{ coupleData.bride.title }}</p>
+            <p class="couple-parents">Putri dari {{ coupleData.bride.father }} & {{ coupleData.bride.mother }}</p>
           </div>
 
           <div class="couple-divider-large">
@@ -168,34 +191,66 @@ Pesan: ${rsvpData.value.message || 'Terima kasih!'}`
 
           <div class="couple-item">
             <div class="couple-circle">
-              <span class="couple-letter">P</span>
+              <span class="couple-letter">{{ coupleData.groom.nickname[0] }}</span>
             </div>
             <p class="couple-fullname">{{ coupleData.groom.fullName }}</p>
-            <p class="couple-label">Putra Muslim</p>
+            <p class="couple-label">{{ coupleData.groom.title }}</p>
+            <p class="couple-parents">Putra dari {{ coupleData.groom.father }} & {{ coupleData.groom.mother }}</p>
           </div>
         </div>
 
         <div class="event-section">
-          <div class="event-row">
-            <div class="event-icon">📅</div>
-            <div class="event-details">
-              <p class="event-label">Hari & Tanggal</p>
-              <p class="event-value">{{ coupleData.event.date }}</p>
+          <!-- Akad Nikah -->
+          <div class="event-group">
+            <p class="event-group-title">💒 Akad Nikah</p>
+            <div class="event-row">
+              <div class="event-icon">📅</div>
+              <div class="event-details">
+                <p class="event-label">Hari & Tanggal</p>
+                <p class="event-value">{{ coupleData.events[0].day }}, {{ coupleData.events[0].date }}</p>
+              </div>
+            </div>
+            <div class="event-row">
+              <div class="event-icon">⏰</div>
+              <div class="event-details">
+                <p class="event-label">Waktu</p>
+                <p class="event-value">{{ coupleData.events[0].time }}</p>
+              </div>
+            </div>
+            <div class="event-row">
+              <div class="event-icon">🕌</div>
+              <div class="event-details">
+                <p class="event-label">Tempat</p>
+                <p class="event-value">{{ coupleData.events[0].venue }}</p>
+                <p class="event-address">{{ coupleData.events[0].address }}</p>
+              </div>
             </div>
           </div>
-          <div class="event-row">
-            <div class="event-icon">⏰</div>
-            <div class="event-details">
-              <p class="event-label">Waktu</p>
-              <p class="event-value">{{ coupleData.event.time }}</p>
+
+          <!-- Resepsi -->
+          <div class="event-group">
+            <p class="event-group-title">🎊 Resepsi</p>
+            <div class="event-row">
+              <div class="event-icon">📅</div>
+              <div class="event-details">
+                <p class="event-label">Hari & Tanggal</p>
+                <p class="event-value">{{ coupleData.events[1].day }}, {{ coupleData.events[1].date }}</p>
+              </div>
             </div>
-          </div>
-          <div class="event-row">
-            <div class="event-icon">🕌</div>
-            <div class="event-details">
-              <p class="event-label">Tempat</p>
-              <p class="event-value">{{ coupleData.event.venue }}</p>
-              <p class="event-address">{{ coupleData.event.address }}</p>
+            <div class="event-row">
+              <div class="event-icon">⏰</div>
+              <div class="event-details">
+                <p class="event-label">Waktu</p>
+                <p class="event-value">{{ coupleData.events[1].time }}</p>
+              </div>
+            </div>
+            <div class="event-row">
+              <div class="event-icon">🏠</div>
+              <div class="event-details">
+                <p class="event-label">Tempat</p>
+                <p class="event-value">{{ coupleData.events[1].venue }}</p>
+                <p class="event-address">{{ coupleData.events[1].address }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -490,6 +545,13 @@ body {
   font-size: clamp(32px, 6vw, 56px);
   color: white;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 5px;
+}
+
+.couple-small {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Amiri', serif;
 }
 
 .ampersand {
@@ -628,6 +690,12 @@ body {
   color: var(--gold);
 }
 
+.couple-parents {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 5px;
+}
+
 .couple-divider-large {
   display: flex;
   flex-direction: column;
@@ -646,7 +714,22 @@ body {
 .event-section {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
+}
+
+.event-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.event-group-title {
+  font-size: 16px;
+  color: var(--gold);
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgba(201, 169, 98, 0.3);
 }
 
 .event-row {
