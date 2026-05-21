@@ -178,13 +178,13 @@ function scrollToTop() {
           <div class="names-details">
             <h2 class="name">{{ coupleData.bride.nickname }}</h2>
             <p class="name-full">{{ coupleData.bride.fullName }}</p>
-            <p class="parents">Putri dari Bapak {{ coupleData.bride.father }} dan Ibu {{ coupleData.bride.mother }}</p>
+            <p class="parents">Dari Bapak {{ coupleData.bride.father }} & Ibu {{ coupleData.bride.mother }}</p>
 
             <div class="rings-gold">💍</div>
 
             <h2 class="name">{{ coupleData.groom.nickname }}</h2>
             <p class="name-full">{{ coupleData.groom.fullName }}</p>
-            <p class="parents">Putra dari Bapak {{ coupleData.groom.father }} dan Ibu {{ coupleData.groom.mother }}</p>
+            <p class="parents">Dari Bapak {{ coupleData.groom.father }} & Ibu {{ coupleData.groom.mother }}</p>
           </div>
 
           <div class="event-grid-paper">
