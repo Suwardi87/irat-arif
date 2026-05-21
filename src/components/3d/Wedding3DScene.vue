@@ -230,6 +230,7 @@ function initScene() {
   controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true
   controls.enableZoom = props.enableZoom
+  controls.enablePan = false
   controls.autoRotate = props.autoRotate
   controls.autoRotateSpeed = props.autoRotateSpeed
   controls.maxDistance = 80

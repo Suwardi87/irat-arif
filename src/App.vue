@@ -49,11 +49,17 @@ const showDigitalCard = ref(false)
 const showGallery = ref(false)
 const isPlaying = ref(false)
 const audio = ref<HTMLAudioElement | null>(null)
+const showBackToTop = ref(false)
 
 onMounted(() => {
   setTimeout(() => {
     isLoading.value = false
   }, 2000)
+
+  // Show/hide back to top button
+  window.addEventListener('scroll', () => {
+    showBackToTop.value = window.scrollY > 400
+  })
 })
 
 function toggleMusic() {
@@ -71,6 +77,10 @@ function toggleMusic() {
 
 function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 </script>
 
@@ -103,6 +113,15 @@ function scrollToSection(id: string) {
     <button v-if="!isLoading" @click="showDigitalCard = true" class="fab-open">
       <span class="fab-icon">💌</span>
       <span class="fab-text">Buka Undangan</span>
+    </button>
+  </Transition>
+
+  <!-- Back to Top Button -->
+  <Transition name="fade">
+    <button v-if="showBackToTop" @click="scrollToTop" class="back-to-top">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
     </button>
   </Transition>
 
@@ -449,6 +468,31 @@ body {
   0% { transform: translateX(-50%) scale(0) translateY(100px); opacity: 0; }
   50% { transform: translateX(-50%) scale(1.1) translateY(0); }
   100% { transform: translateX(-50%) scale(1) translateY(0); opacity: 1; }
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: #d4af37;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 98;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  color: white;
+  transition: all 0.3s;
+}
+
+.back-to-top:hover {
+  background: #b8952d;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 640px) {
