@@ -168,7 +168,7 @@ onMounted(() => {
                 <span class="env-dot">◆</span>
                 <span class="env-line"></span>
               </div>
-              <p class="envelope-couple">{{ brideNickname }} & {{ groomNickname }}</p>
+              <p class="envelope-couple">Asratul Fitri & Arif Hidayatulah</p>
             </div>
 
             <div class="envelope-guest-area">
