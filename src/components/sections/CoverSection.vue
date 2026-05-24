@@ -45,10 +45,7 @@ function openEnvelope() {
     scale: 1,
     opacity: 1,
     duration: 0.6,
-    ease: 'back.out(1.7)',
-    onStart: () => {
-      showContent.value = true
-    }
+    ease: 'back.out(1.7)'
   }, '-=0.4')
 
   tl.to('.envelope-wrapper', {
@@ -124,7 +121,7 @@ onMounted(() => {
         </div>
 
         <div class="envelope-card">
-          <div v-if="showContent" class="card-content">
+          <div class="card-content">
             <div class="card-ornament top">
               <svg viewBox="0 0 200 40" class="ornament-top-svg">
                 <path d="M0 20 Q50 0 100 20 Q150 40 200 20" fill="none" stroke="var(--emas)" stroke-width="1"/>
@@ -135,6 +132,8 @@ onMounted(() => {
             </div>
 
             <p class="card-bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
+
+            <p class="card-label">Undangan Pernikahan</p>
 
             <div class="card-names">
               <span class="card-name bride">{{ brideNickname }}</span>
@@ -314,6 +313,16 @@ onMounted(() => {
   font-size: clamp(18px, 4vw, 22px);
   color: var(--emas);
   text-shadow: 0 2px 15px rgba(var(--emas-rgb), 0.3);
+}
+
+.card-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  color: var(--emas-light);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+  opacity: 0.8;
 }
 
 .card-names {
