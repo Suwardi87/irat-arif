@@ -33,8 +33,8 @@ function openEnvelope() {
   })
 
   tl.to('.envelope-card', {
-    y: -320,
-    duration: 1.4,
+    y: -380,
+    duration: 1.0,
     ease: 'power2.out',
     onStart: () => {
       envelopeState.value = 'card-out'
@@ -42,13 +42,21 @@ function openEnvelope() {
     }
   }, '-=0.3')
 
+  tl.to('.envelope-card', {
+    y: -250,
+    duration: 0.8,
+    ease: 'power2.inOut'
+  })
+
+  tl.to({}, { duration: 1.5 })
+
   tl.to('.envelope-wrapper', {
     opacity: 0,
     y: 60,
     scale: 0.9,
     duration: 0.8,
     ease: 'power2.in'
-  }, '-=0.2')
+  })
 
   tl.to('.envelope-card', {
     opacity: 0,
@@ -61,7 +69,7 @@ function openEnvelope() {
       showEnvelope.value = false
       emit('open')
     }
-  }, '+=1.5')
+  })
 }
 
 onMounted(() => {
