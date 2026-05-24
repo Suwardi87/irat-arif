@@ -36,8 +36,8 @@ export default {
       backgroundImage: {
         'glass': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
         'glass-dark': 'linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%)',
-        'gold-gradient': 'linear-gradient(135deg, #f9b31a 0%, #db9010 50%, #b6700e 100%)',
-        'shimmer': 'linear-gradient(90deg, transparent, rgba(249,179,26,0.1), transparent)',
+        'gold-gradient': 'linear-gradient(135deg, var(--emas) 0%, var(--emas-dark) 100%)',
+        'shimmer': 'linear-gradient(90deg, transparent, rgba(var(--emas-rgb), 0.1), transparent)',
       },
       blur: {
         xs: '2px',

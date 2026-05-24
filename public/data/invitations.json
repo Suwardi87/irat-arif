@@ -6,58 +6,93 @@
       "isActive": true,
       "couple": {
         "bride": {
-          "fullName": "Asratul Fitri",
-          "nickname": "Fitri",
-          "fatherName": "H. Ahmad Syafi'i",
-          "motherName": "Hj. Mariam"
+          "fullName": "Asratul Fitri, A.Md",
+          "nickname": "Irat",
+          "title": "Putri Muslim",
+          "fatherName": "Suhaimi",
+          "motherName": "Asmi",
+          "photo": "/images/bride-anime.png"
         },
         "groom": {
-          "fullName": "Muhammad Rizky",
-          "nickname": "Rizky",
-          "fatherName": "H. Budi Santoso",
-          "motherName": "Hj. Siti Aminah"
-        }
+          "fullName": "Arif Hidayatulah",
+          "nickname": "Arif",
+          "title": "Putra Muslim",
+          "fatherName": "Amrizal",
+          "motherName": "Ratna Juita",
+          "photo": "/images/groom-anime.png"
+        },
+        "couplePhoto": "/images/couples/couple-anime.png"
       },
+      "events": [
+        {
+          "type": "akad",
+          "title": "Akad Nikah",
+          "day": "JUM'AT",
+          "date": "2026-06-05T14:00:00+07:00",
+          "endDate": "2026-06-05T17:00:00+07:00",
+          "displayDate": "05",
+          "displayMonth": "JUNI 2026",
+          "time": "14.00 WIB s/d Selesai",
+          "venue": "Masjid Al-Wustha Hilir Balai",
+          "address": "Nagari Paninjauan, Kec. X Koto, Tanah Datar",
+          "mapsUrl": "https://maps.google.com"
+        },
+        {
+          "type": "resepsi-1",
+          "title": "RESEPSI 1",
+          "day": "SABTU",
+          "date": "2026-06-06T10:00:00+07:00",
+          "endDate": "2026-06-06T14:00:00+07:00",
+          "displayDate": "06",
+          "displayMonth": "JUNI 2026",
+          "time": "10.00 WIB s/d Selesai",
+          "venue": "Gedung Serbaguna Paninjauan",
+          "address": "Nagari Paninjauan, Kec. X Koto, Tanah Datar",
+          "mapsUrl": "https://maps.google.com"
+        },
+        {
+          "type": "resepsi-2",
+          "title": "RESEPSI 2",
+          "day": "MINGGU",
+          "date": "2026-06-07T10:00:00+07:00",
+          "endDate": "2026-06-07T14:00:00+07:00",
+          "displayDate": "07",
+          "displayMonth": "JUNI 2026",
+          "time": "10.00 WIB s/d Selesai",
+          "venue": "Anak Kayu, Jorong Tabu Baraie",
+          "address": "Nagari Paninjauan, Kec. X Koto, Tanah Datar",
+          "mapsUrl": "https://maps.google.com"
+        }
+      ],
       "event": {
-        "name": "The Wedding",
-        "date": "2025-12-25T09:00:00+07:00",
-        "endDate": "2025-12-25T12:00:00+07:00",
-        "venue": "Grand Ballroom",
-        "address": "Hotel Mulia Senayan, Jl. Asia Afrika Senayan, Jakarta 10270",
+        "name": "The Wedding of Asratul Fitri & Arif Hidayatulah",
+        "date": "2026-06-05T14:00:00+07:00",
+        "endDate": "2026-06-07T14:00:00+07:00",
+        "venue": "Nagari Paninjauan, Tanah Datar",
+        "address": "Kec. X Koto, Kabupaten Tanah Datar, Sumatera Barat",
         "location": {
-          "name": "Hotel Mulia Senayan",
-          "address": "Jl. Asia Afrika Senayan, Jakarta 10270",
-          "lat": -6.2183,
-          "lng": 106.7929,
-          "googleMapsUrl": "https://maps.google.com/?q=Hotel+Mulia+Senayan"
+          "name": "Masjid Al-Wustha Hilir Balai",
+          "address": "Nagari Paninjauan, Kec. X Koto, Tanah Datar",
+          "lat": -0.45,
+          "lng": 100.55,
+          "googleMapsUrl": "https://maps.google.com"
         }
-      },
-      "groomDetail": {
-        "title": "Akad Nikah",
-        "date": "2025-12-25T09:00:00+07:00",
-        "endDate": "2025-12-25T10:00:00+07:00",
-        "address": "Masjid Agung Al-Azhar, Jakarta Selatan"
-      },
-      "reception": {
-        "title": "Resepsi",
-        "date": "2025-12-25T11:00:00+07:00",
-        "endDate": "2025-12-25T14:00:00+07:00",
-        "address": "Grand Ballroom, Hotel Mulia Senayan"
       },
       "theme": {
         "id": "elegant-gold",
         "name": "Elegant Gold",
         "primaryColor": "#D4AF37",
-        "secondaryColor": "#1A1A1A",
+        "secondaryColor": "#C41E3A",
         "backgroundColor": "#0A0A0A",
         "font": {
           "heading": "Playfair Display",
-          "body": "Inter",
-          "script": "Great Vibes"
+          "body": "Cormorant Garamond",
+          "script": "Great Vibes",
+          "arabic": "Amiri"
         }
       },
       "music": {
-        "enabled": false,
+        "enabled": true,
         "src": "/sounds/wedding-piano.mp3",
         "volume": 0.3,
         "autoPlay": false
@@ -76,7 +111,7 @@
         "whatsapp": {
           "enabled": true,
           "phoneNumber": "6281234567890",
-          "message": "Halo, saya ingin konfirmasi kehadiran di pernikahan Fitri & Rizky"
+          "message": "Assalamu'alaikum, saya ingin konfirmasi kehadiran di pernikahan Irat & Arif. Nama: ..."
         },
         "form": {
           "enabled": true,
@@ -125,30 +160,60 @@
           {
             "bankName": "BCA",
             "accountNumber": "1234567890",
-            "accountName": "Asratul Fitri",
-            "icon": "/images/banks/bca.png"
+            "accountName": "Asratul Fitri"
           },
           {
             "bankName": "MANDIRI",
             "accountNumber": "0987654321",
-            "accountName": "Muhammad Rizky",
-            "icon": "/images/banks/mandiri.png"
+            "accountName": "Arif Hidayatulah"
+          }
+        ]
+      },
+      "story": {
+        "enabled": true,
+        "title": "Cerita Kami",
+        "milestones": [
+          {
+            "date": "2020",
+            "title": "Pertama Bertemu",
+            "description": "Kami pertama kali bertemu di sebuah acara keluarga di Nagari Paninjauan. Senyum hangat dan obrolan yang mengalir menjadi awal dari segalanya.",
+            "icon": "🌟"
+          },
+          {
+            "date": "2021",
+            "title": "Mulai Dekat",
+            "description": "Dari kenalan menjadi sahabat. Kami mulai sering berbagi cerita, tawa, dan mimpi-mimpi tentang masa depan.",
+            "icon": "💬"
+          },
+          {
+            "date": "2023",
+            "title": "Jatuh Cinta",
+            "description": "Tanpa disadari, rasa sayang tumbuh menjadi cinta. Setiap momen bersama terasa spesial dan penuh makna.",
+            "icon": "💖"
+          },
+          {
+            "date": "2025",
+            "title": "Lamaran",
+            "description": "Dengan restu kedua orang tua, Arif melamar Irat dalam sebuah acara sederhana namun penuh kebahagiaan.",
+            "icon": "💍"
+          },
+          {
+            "date": "2026",
+            "title": "Pernikahan",
+            "description": "Insya Allah, kami akan menyatukan langkah dalam ikatan suci pernikahan. Semoga menjadi keluarga yang sakinah, mawaddah, warahmah.",
+            "icon": "🕌"
           }
         ]
       },
       "quotes": [
-        {
-          "text": "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya.",
-          "source": "QS. Ar-Rum: 21"
-        },
         {
           "text": "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang.",
           "source": "QS. Ar-Rum: 21"
         }
       ],
       "seo": {
-        "title": "The Wedding of Asratul Fitri & Muhammad Rizky",
-        "description": "Undangan pernikahan digital Asratul Fitri & Muhammad Rizky - 25 Desember 2025",
+        "title": "The Wedding of Asratul Fitri & Arif Hidayatulah",
+        "description": "Undangan Pernikahan Asratul Fitri & Arif Hidayatulah - 5-7 Juni 2026",
         "image": "/images/og-image.jpg"
       },
       "createdAt": "2025-01-01T00:00:00+07:00",

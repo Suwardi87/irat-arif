@@ -1,5 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import './style.css'
+import router from './router'
+import './assets/styles/main.css'
 
-createApp(App).mount('#app')
+createApp(App).use(router).mount('#app')
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {})
+  })
+}

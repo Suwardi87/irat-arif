@@ -14,7 +14,7 @@ import type { BaseButtonProps } from '@/types'
  * - Full luxury styling with gold accents
  */
 
-interface Props extends BaseButtonProps {
+interface Props extends /* @vue-ignore */ BaseButtonProps {
   type?: 'button' | 'submit' | 'reset'
 }
 

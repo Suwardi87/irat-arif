@@ -54,7 +54,7 @@ function close() {
 }
 
 .gallery-title {
-  color: #d4af37;
+  color: var(--emas);
   font-family: 'Great Vibes', cursive;
   font-size: 48px;
   text-align: center;
@@ -70,13 +70,13 @@ function close() {
 .gallery-item {
   border-radius: 8px;
   overflow: hidden;
-  border: 2px solid rgba(212, 175, 55, 0.2);
+  border: 2px solid rgba(var(--emas-rgb), 0.2);
   transition: transform 0.3s;
 }
 
 .gallery-item:hover {
   transform: scale(1.02);
-  border-color: #d4af37;
+  border-color: var(--emas);
 }
 
 .gallery-item img {
