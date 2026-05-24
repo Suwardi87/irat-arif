@@ -41,7 +41,7 @@ export function useThreeScene(
   const isInitialized = ref(false)
 
   // Animation frame ID for cleanup
-  let animationFrameId: number | null = null
+  const animationFrameId: number | null = null
 
   // Resize handler with debouncing
   let resizeTimeout: ReturnType<typeof setTimeout> | null = null

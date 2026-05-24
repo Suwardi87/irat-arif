@@ -53,14 +53,7 @@ onUnmounted(() => observer?.disconnect())
         Dengan memohon Rahmat dan Ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami:
       </p>
 
-      <!-- <div v-if="couplePhoto" class="couple-frame">
-        <!-- <img src="/images/couples/cropped_assets/asset_3.png" alt="" class="corner tl" loading="lazy" /> -->
-        <!-- <img src="/images/couples/cropped_assets/asset_4.png" alt="" class="corner tr" loading="lazy" />
-        <img src="/images/couples/cropped_assets/asset_11.png" alt="" class="corner bl" loading="lazy" />
-        <img src="/images/couples/cropped_assets/asset_11.png" alt="" class="corner br" loading="lazy" />
-        <div class="frame-border"></div>
-        <img :src="couplePhoto" alt="Foto Mempelai" class="couple-photo" loading="lazy" />
-      </div> --> -->
+
 
       <div class="mempelai-cards">
         <div class="mempelai-card groom-card">

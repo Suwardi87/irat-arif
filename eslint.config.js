@@ -1,105 +1,40 @@
 import js from '@eslint/js'
-import globals from 'globals'
 import pluginVue from 'eslint-plugin-vue'
 import * as parserVue from 'vue-eslint-parser'
-import configPrettier from 'eslint-config-prettier'
-import * as parserTypeScript from '@typescript-eslint/parser'
-import pluginTypeScript from '@typescript-eslint/eslint-plugin'
+import configTs from '@vue/eslint-config-typescript'
 
 export default [
-  {
-    name: 'app/files-to-ignore',
-    ignores: [
-      '**/dist/**',
-      '**/dist-ssr/**',
-      '**/coverage/**',
-      '**/auto-imports.d.ts',
-      '**/components.d.ts',
-      '**/node_modules/**'
-    ],
-  },
-
   js.configs.recommended,
-  ...pluginVue.configs['flat/essential'],
-  configPrettier,
-
+  ...pluginVue.configs['flat/recommended'],
+  ...configTs(),
   {
-    name: 'app/browser-globals',
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.es2021,
-        process: 'readonly',
-      },
-    },
-  },
-
-  {
-    name: 'app/vue-files',
-    files: ['**/*.vue'],
     languageOptions: {
       parser: parserVue,
       parserOptions: {
+        parser: {
+          ts: '@typescript-eslint/parser',
+          js: 'espree',
+          '<ts>': '@typescript-eslint/parser',
+        },
         ecmaVersion: 'latest',
-        extraFileExtensions: ['.vue'],
-        parser: parserTypeScript,
         sourceType: 'module',
       },
-      globals: {
-        ...globals.browser,
-        THREE: 'readonly',
-        gsap: 'readonly',
-        ScrollTrigger: 'readonly',
-      },
-    },
-    plugins: {
-      '@typescript-eslint': pluginTypeScript,
-      'vue': pluginVue,
     },
     rules: {
       'vue/multi-word-component-names': 'off',
-      '@typescript-eslint/no-unused-vars': ['warn', {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-        args: 'after-used',
-        ignoreRestSiblings: true,
-      }],
-      'no-undef': 'off',
+      'vue/no-v-html': 'off',
+      'vue/max-attributes-per-line': 'off',
+      'vue/singleline-html-element-content-newline': 'off',
+      'vue/html-self-closing': 'off',
+      'vue/require-default-prop': 'off',
+      'vue/attributes-order': 'off',
+      'vue/html-closing-bracket-spacing': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'no-unused-vars': 'off',
-      'no-console': 'off',
-      'no-debugger': 'off',
     },
   },
-
   {
-    name: 'app/typescript-files',
-    files: ['**/*.{ts,tsx}'],
-    languageOptions: {
-      parser: parserTypeScript,
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-      },
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-        THREE: 'readonly',
-        gsap: 'readonly',
-        ScrollTrigger: 'readonly',
-      },
-    },
-    plugins: {
-      '@typescript-eslint': pluginTypeScript,
-    },
-    rules: {
-      '@typescript-eslint/no-unused-vars': ['warn', {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-      }],
-      'no-undef': 'off',
-      'no-unused-vars': 'off',
-      'no-console': 'off',
-      'no-debugger': 'off',
-    },
+    ignores: ['dist/**', 'node_modules/**', 'public/**', 'src/auto-imports.d.ts'],
   },
 ]

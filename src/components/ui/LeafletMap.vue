@@ -2,9 +2,9 @@
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-// @ts-ignore - leaflet-routing-machine types may not be available
+// @ts-expect-error - leaflet-routing-machine types may not be available
 import 'leaflet-routing-machine'
-// @ts-ignore
+// @ts-expect-error leaflet routing machine CSS has no types
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css'
 
 /**

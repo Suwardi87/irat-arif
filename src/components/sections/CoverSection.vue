@@ -107,12 +107,14 @@ onMounted(() => {
 <template>
   <section v-if="showEnvelope" class="envelope-section">
     <div class="envelope-particles">
-      <div v-for="i in 20" :key="i" class="particle" :style="{
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        animationDelay: `${Math.random() * 4}s`,
-        animationDuration: `${3 + Math.random() * 4}s`
-      }"></div>
+      <div
+        v-for="i in 20" :key="i" class="particle" :style="{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 4}s`,
+          animationDuration: `${3 + Math.random() * 4}s`
+        }"
+      ></div>
     </div>
 
     <div class="envelope-wrapper">

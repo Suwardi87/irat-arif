@@ -94,7 +94,7 @@ const demoMusic = new URL('@/assets/sounds/wedding-piano.mp3', import.meta.url).
             variant="primary"
             size="lg"
             icon-position="right"
-            icon='<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>'
+            icon="<svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M17 8l4 4m0 0l-4 4m4-4H3&quot;/></svg>"
           >
             Lihat Demo
           </BaseButton>
