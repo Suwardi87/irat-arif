@@ -33,7 +33,7 @@ function openEnvelope() {
   })
 
   tl.to('.envelope-card', {
-    y: -380,
+    y: -400,
     duration: 1.0,
     ease: 'power2.out',
     onStart: () => {
@@ -43,7 +43,7 @@ function openEnvelope() {
   }, '-=0.3')
 
   tl.to('.envelope-card', {
-    y: -250,
+    y: -150,
     duration: 0.8,
     ease: 'power2.inOut'
   })
