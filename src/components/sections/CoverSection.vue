@@ -34,6 +34,7 @@ function openEnvelope() {
 
   tl.to('.envelope-card', {
     y: -400,
+    zIndex: 10,
     duration: 1.0,
     ease: 'power2.out',
     onStart: () => {
@@ -273,7 +274,7 @@ onMounted(() => {
   background: linear-gradient(180deg, var(--surface) 0%, var(--surface-dark) 50%, var(--surface) 100%);
   border: 2px solid var(--emas);
   border-radius: 12px;
-  z-index: 5;
+  z-index: 2;
   box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
