@@ -33,7 +33,7 @@ function openEnvelope() {
   })
 
   tl.to('.envelope-card', {
-    y: 320,
+    y: -320,
     duration: 1.4,
     ease: 'power2.out',
     onStart: () => {
@@ -44,7 +44,7 @@ function openEnvelope() {
 
   tl.to('.envelope-wrapper', {
     opacity: 0,
-    y: -80,
+    y: 60,
     scale: 0.9,
     duration: 0.8,
     ease: 'power2.in'
@@ -61,7 +61,7 @@ function openEnvelope() {
       showEnvelope.value = false
       emit('open')
     }
-  }, '+=1.2')
+  }, '+=1.5')
 }
 
 onMounted(() => {
@@ -259,14 +259,14 @@ onMounted(() => {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 20px;
+  bottom: 20px;
   width: min(300px, 75vw);
   min-height: 350px;
   background: linear-gradient(180deg, var(--surface) 0%, var(--surface-dark) 50%, var(--surface) 100%);
   border: 2px solid var(--emas);
   border-radius: 12px;
   z-index: 5;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
 
