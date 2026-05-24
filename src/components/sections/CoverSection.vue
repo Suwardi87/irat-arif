@@ -33,49 +33,35 @@ function openEnvelope() {
   })
 
   tl.to('.envelope-card', {
-    y: -280,
-    duration: 1.2,
-    ease: 'power3.out',
+    y: 320,
+    duration: 1.4,
+    ease: 'power2.out',
     onStart: () => {
       envelopeState.value = 'card-out'
+      showContent.value = true
     }
   }, '-=0.3')
 
-  tl.to('.envelope-card', {
-    scale: 1,
-    opacity: 1,
-    duration: 0.6,
-    ease: 'back.out(1.7)'
-  }, '-=0.4')
-
   tl.to('.envelope-wrapper', {
     opacity: 0,
-    y: 100,
+    y: -80,
     scale: 0.9,
     duration: 0.8,
     ease: 'power2.in'
-  }, '-=0.3')
-
-  tl.to('.envelope-card', {
-    scale: 1.05,
-    duration: 0.4,
-    ease: 'power2.inOut',
-    yoyo: true,
-    repeat: 1
-  }, '-=0.3')
+  }, '-=0.2')
 
   tl.to('.envelope-card', {
     opacity: 0,
-    scale: 0.9,
-    filter: 'blur(10px)',
-    duration: 0.8,
+    scale: 0.95,
+    filter: 'blur(8px)',
+    duration: 0.6,
     ease: 'power3.in',
     onComplete: () => {
       envelopeState.value = 'done'
       showEnvelope.value = false
       emit('open')
     }
-  }, '+=0.5')
+  }, '+=1.2')
 }
 
 onMounted(() => {
@@ -121,7 +107,7 @@ onMounted(() => {
         </div>
 
         <div class="envelope-card">
-          <div class="card-content">
+          <div v-if="showContent" class="card-content">
             <div class="card-ornament top">
               <svg viewBox="0 0 200 40" class="ornament-top-svg">
                 <path d="M0 20 Q50 0 100 20 Q150 40 200 20" fill="none" stroke="var(--emas)" stroke-width="1"/>
@@ -273,14 +259,14 @@ onMounted(() => {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 20px;
+  top: 20px;
   width: min(300px, 75vw);
   min-height: 350px;
   background: linear-gradient(180deg, var(--surface) 0%, var(--surface-dark) 50%, var(--surface) 100%);
   border: 2px solid var(--emas);
   border-radius: 12px;
   z-index: 5;
-  box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
 
