@@ -43,7 +43,7 @@ function openEnvelope() {
   }, '-=0.3')
 
   tl.to('.envelope-card', {
-    y: -300,
+    y: 0,
     duration: 0.8,
     ease: 'power2.inOut'
   })
