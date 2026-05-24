@@ -16,3 +16,7 @@ Letakkan gambar kartun/anime couple di folder ini:
 - Format: PNG dengan transparansi
 - Ukuran: 200x250px minimum
 - Background: Transparan (PNG)
+
+
+ claude --resume ec12addd-9d2b-4dd6-bed2-28ac268c949a
+

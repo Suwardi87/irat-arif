@@ -1,34 +1,88 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250" width="200" height="250">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400" width="200" height="400">
   <defs>
-    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff"/>
-      <stop offset="100%" style="stop-color:#f0f0f0"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe8ec"/>
+      <stop offset="100%" stop-color="#ffffff"/>
     </linearGradient>
   </defs>
-  <!-- Body/Shirt -->
-  <rect x="60" y="170" width="80" height="70" rx="10" fill="url(#shirtGrad)"/>
-  <!-- Tie -->
-  <rect x="95" y="170" width="10" height="40" fill="#d4af37"/>
-  <polygon points="100,210 93,218 107,218" fill="#d4af37"/>
-  <!-- Head -->
-  <ellipse cx="100" cy="130" rx="35" ry="40" fill="#ffe4c4"/>
-  <!-- Hair -->
-  <ellipse cx="100" cy="100" rx="32" ry="20" fill="#1a1a1a"/>
-  <!-- Peci/Cap -->
-  <ellipse cx="100" cy="85" rx="35" ry="18" fill="#1a4d2e"/>
-  <ellipse cx="100" cy="92" rx="30" ry="12" fill="#1a4d2e" stroke="#d4af37" stroke-width="2"/>
-  <!-- Face -->
-  <ellipse cx="100" cy="125" rx="28" ry="30" fill="#ffe4c4"/>
-  <!-- Eyes -->
-  <ellipse cx="90" cy="120" rx="6" ry="8" fill="#2c1810"/>
-  <ellipse cx="110" cy="120" rx="6" ry="8" fill="#2c1810"/>
-  <circle cx="92" cy="118" r="2" fill="white"/>
-  <circle cx="112" cy="118" r="2" fill="white"/>
-  <!-- Blush -->
-  <ellipse cx="85" cy="130" rx="8" ry="4" fill="#ffb6c1" opacity="0.6"/>
-  <ellipse cx="115" cy="130" rx="8" ry="4" fill="#ffb6c1" opacity="0.6"/>
-  <!-- Smile -->
-  <path d="M 93 140 Q 100 148 107 140" stroke="#d4a5a5" stroke-width="2" fill="none"/>
-  <!-- Name -->
-  <text x="100" y="245" text-anchor="middle" font-family="Arial" font-size="14" fill="#1a4d2e" font-weight="bold">Arif</text>
+
+  <!-- Background gradient -->
+  <rect x="0" y="0" width="200" height="400" rx="20" fill="url(#bgGrad)"/>
+
+  <!-- Character Group -->
+  <g>
+    <!-- Shadow -->
+    <ellipse cx="100" cy="375" rx="45" ry="8" fill="#e0d0c0" opacity="0.4"/>
+
+    <!-- Legs/Trousers -->
+    <rect x="65" y="270" width="28" height="95" fill="#8b7355" rx="5"/>
+    <rect x="107" y="270" width="28" height="95" fill="#8b7355" rx="5"/>
+
+    <!-- Shoes -->
+    <ellipse cx="79" cy="370" rx="17" ry="7" fill="#2a2a2a"/>
+    <ellipse cx="121" cy="370" rx="17" ry="7" fill="#2a2a2a"/>
+
+    <!-- Body - Brown/Tan Suit -->
+    <path d="M55 140 Q45 190 50 275 L150 275 Q155 190 145 140 Z" fill="#a08060"/>
+
+    <!-- Suit Vest -->
+    <rect x="72" y="145" width="56" height="130" fill="#8b7355" rx="3"/>
+
+    <!-- White Shirt -->
+    <path d="M88 145 L100 275 L112 145 Z" fill="#ffffff"/>
+
+    <!-- Suit Lapels -->
+    <path d="M72 145 L100 200 L88 145 Z" fill="#a08060"/>
+    <path d="M128 145 L100 200 L112 145 Z" fill="#a08060"/>
+
+    <!-- Black Bow Tie -->
+    <path d="M92 133 L85 140 L92 147 L100 143 L108 147 L115 140 L108 133 L100 137 Z" fill="#1a1a1a"/>
+
+    <!-- Buttons -->
+    <circle cx="100" cy="170" r="3.5" fill="#5a4a3a"/>
+    <circle cx="100" cy="195" r="3.5" fill="#5a4a3a"/>
+    <circle cx="100" cy="220" r="3.5" fill="#5a4a3a"/>
+    <circle cx="100" cy="245" r="3.5" fill="#5a4a3a"/>
+
+    <!-- Left Arm - reaching to bride -->
+    <path d="M55 145 Q30 180 25 220 Q28 235 38 230" fill="#a08060"/>
+    <circle cx="28" cy="233" r="14" fill="#f5d5c5"/>
+
+    <!-- Right Arm - holding bouquet -->
+    <path d="M145 145 Q165 170 160 200" fill="#a08060"/>
+    <circle cx="162" cy="205" r="14" fill="#f5d5c5"/>
+
+    <!-- Bouquet in right hand -->
+    <g transform="translate(162, 185)">
+      <ellipse cx="0" cy="-5" rx="12" ry="8" fill="#7eb8da"/>
+      <ellipse cx="-5" cy="0" rx="8" ry="6" fill="#6aa8c8"/>
+      <ellipse cx="5" cy="-2" rx="7" ry="5" fill="#a8d8ea"/>
+      <ellipse cx="0" cy="2" rx="6" ry="4" fill="#ffffff"/>
+      <path d="M-3 5 Q0 15 3 5" stroke="#5a9a6a" stroke-width="2" fill="none"/>
+      <ellipse cx="-2" cy="8" rx="4" ry="3" fill="#7ac89a"/>
+      <ellipse cx="2" cy="7" rx="3" ry="2" fill="#6ab88a"/>
+    </g>
+
+    <!-- Pocket square -->
+    <rect x="125" y="152" width="12" height="8" fill="#ffffff" rx="1"/>
+
+    <!-- Neck -->
+    <rect x="85" y="110" width="30" height="38" fill="#f5d5c5"/>
+
+    <!-- Head - Featureless oval -->
+    <ellipse cx="100" cy="80" rx="36" ry="42" fill="#f5d5c5"/>
+
+    <!-- Hair - Short neat style -->
+    <ellipse cx="100" cy="55" rx="38" ry="28" fill="#3a3a3a"/>
+    <ellipse cx="62" cy="70" rx="9" ry="18" fill="#3a3a3a"/>
+    <ellipse cx="138" cy="70" rx="9" ry="18" fill="#3a3a3a"/>
+
+    <!-- Sideburns -->
+    <ellipse cx="60" cy="65" rx="5" ry="14" fill="#3a3a3a"/>
+    <ellipse cx="140" cy="65" rx="5" ry="14" fill="#3a3a3a"/>
+
+    <!-- Ears -->
+    <ellipse cx="64" cy="80" rx="5" ry="10" fill="#f5d5c5"/>
+    <ellipse cx="136" cy="80" rx="5" ry="10" fill="#f5d5c5"/>
+  </g>
 </svg>
