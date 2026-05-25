@@ -518,6 +518,7 @@ onUnmounted(() => {
   margin-top: 24px;
   padding: 16px 20px;
   background: linear-gradient(135deg, rgba(var(--emas-rgb), 0.08), rgba(var(--emas-rgb), 0.03));
+  backdrop-filter: blur(10px);
   border: 1px dashed rgba(var(--emas-rgb), 0.2);
   border-radius: 12px;
   display: flex;

@@ -274,6 +274,7 @@ onMounted(() => {
   width: min(300px, 75vw);
   min-height: 350px;
   background: linear-gradient(180deg, var(--surface) 0%, var(--surface-dark) 50%, var(--surface) 100%);
+  backdrop-filter: blur(10px);
   border: 2px solid var(--emas);
   border-radius: 12px;
   z-index: 2;

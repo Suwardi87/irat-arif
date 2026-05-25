@@ -87,6 +87,7 @@ onUnmounted(() => observer?.disconnect())
   border: 1px solid rgba(var(--emas-rgb), 0.15);
   border-radius: 20px;
   background: linear-gradient(135deg, rgba(var(--emas-rgb), 0.06), rgba(var(--emas-rgb), 0.02));
+  backdrop-filter: blur(10px);
 }
 
 .corner {

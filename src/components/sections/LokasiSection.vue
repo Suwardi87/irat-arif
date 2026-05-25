@@ -104,6 +104,7 @@ function openMaps(url: string) {
 .location-card {
   display: flex;
   background: linear-gradient(135deg, rgba(var(--emas-rgb), 0.08), rgba(var(--emas-rgb), 0.03));
+  backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 24px;
   border: 1px solid rgba(var(--emas-rgb), 0.15);

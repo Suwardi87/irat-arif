@@ -319,6 +319,7 @@ onMounted(() => {
   margin-bottom: 40px;
   padding: 16px 32px;
   background: linear-gradient(135deg, rgba(var(--emas-rgb), 0.1), rgba(var(--emas-rgb), 0.04));
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(var(--emas-rgb), 0.15);
   border-radius: 12px;
   width: fit-content;
@@ -363,6 +364,11 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  background: linear-gradient(135deg, rgba(var(--emas-rgb), 0.1), rgba(var(--emas-rgb), 0.04));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(var(--emas-rgb), 0.15);
+  border-radius: 16px;
+  padding: 24px;
 }
 
 .form-group {

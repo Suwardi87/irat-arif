@@ -189,6 +189,7 @@ onUnmounted(() => observer?.disconnect())
   text-align: center;
   padding: 28px 20px;
   background: linear-gradient(135deg, rgba(var(--emas-rgb), 0.1), rgba(var(--emas-rgb), 0.04));
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(var(--emas-rgb), 0.2);
   border-radius: 16px;
   gap: 16px;
