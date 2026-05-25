@@ -35,7 +35,7 @@
           "time": "14.00 WIB s/d Selesai",
           "venue": "Masjid Al-Wustha Hilir Balai",
           "address": "Nagari Paninjauan, Kec. X Koto, Tanah Datar",
-          "mapsUrl": "https://maps.google.com"
+          "mapsUrl": "https://www.google.com/maps/dir/?api=1&destination=-0.45157579374556583,100.4266406226297&travelmode=driving"
         },
         {
           "type": "resepsi-1",
@@ -46,9 +46,9 @@
           "displayDate": "06",
           "displayMonth": "JUNI 2026",
           "time": "10.00 WIB s/d Selesai",
-          "venue": "Gedung Serbaguna Paninjauan",
-          "address": "Nagari Paninjauan, Kec. X Koto, Tanah Datar",
-          "mapsUrl": "https://maps.google.com"
+          "venue": "Rumah Mempelai Pria",
+          "address": "Ekor Koto, Jorong Tigo Suku, Paninjauan, Kec. X Koto, Kab. Tanah Datar",
+          "mapsUrl": "https://www.google.com/maps/dir/?api=1&destination=-0.45157579374556583,100.4266406226297&travelmode=driving"
         },
         {
           "type": "resepsi-2",
@@ -61,7 +61,7 @@
           "time": "10.00 WIB s/d Selesai",
           "venue": "Anak Kayu, Jorong Tabu Baraie",
           "address": "Nagari Paninjauan, Kec. X Koto, Tanah Datar",
-          "mapsUrl": "https://maps.google.com"
+          "mapsUrl": "https://www.google.com/maps/dir/?api=1&destination=-0.4394319425770612,100.42300805178034&travelmode=driving"
         }
       ],
       "event": {
@@ -129,8 +129,14 @@
               "type": "select",
               "required": true,
               "options": [
-                { "value": "1", "label": "1 Orang" },
-                { "value": "2", "label": "2 Orang" }
+                {
+                  "value": "1",
+                  "label": "1 Orang"
+                },
+                {
+                  "value": "2",
+                  "label": "2 Orang"
+                }
               ]
             },
             {
@@ -139,9 +145,18 @@
               "type": "radio",
               "required": true,
               "options": [
-                { "value": "hadir", "label": "Hadir" },
-                { "value": "tidak", "label": "Tidak Hadir" },
-                { "value": "ragu", "label": "Masih Ragu" }
+                {
+                  "value": "hadir",
+                  "label": "Hadir"
+                },
+                {
+                  "value": "tidak",
+                  "label": "Tidak Hadir"
+                },
+                {
+                  "value": "ragu",
+                  "label": "Masih Ragu"
+                }
               ]
             },
             {
@@ -216,8 +231,28 @@
         "description": "Undangan Pernikahan Asratul Fitri & Arif Hidayatulah - 5-7 Juni 2026",
         "image": "/images/og-image.jpg"
       },
+      "guests": [
+        {
+          "slug": "budi-santoso",
+          "name": "Budi Santoso",
+          "group": "keluarga",
+          "maxGuests": 2
+        },
+        {
+          "slug": "siti-aminah",
+          "name": "Siti Aminah",
+          "group": "keluarga",
+          "maxGuests": 2
+        },
+        {
+          "slug": "pak-ahmad",
+          "name": "Pak Ahmad",
+          "group": "tetangga",
+          "maxGuests": 1
+        }
+      ],
       "createdAt": "2025-01-01T00:00:00+07:00",
-      "updatedAt": "2025-01-01T00:00:00+07:00"
+      "updatedAt": "2026-05-25T14:23:02.885Z"
     }
   ]
 }

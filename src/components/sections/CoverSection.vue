@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
+import type { GuestData } from '@/composables/useGuestName'
 
 const props = defineProps<{
   greeting?: string
@@ -8,6 +9,7 @@ const props = defineProps<{
   isPersonalized: boolean
   brideNickname: string
   groomNickname: string
+  guestData?: GuestData | null
 }>()
 
 const emit = defineEmits<{
@@ -384,6 +386,7 @@ onMounted(() => {
   position: relative;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  padding-top: 50px;
 }
 
 .envelope-front::before {
@@ -449,7 +452,7 @@ onMounted(() => {
 .envelope-label {
   font-family: 'Cormorant Garamond', serif;
   font-size: 11px;
-  color: var(--charcoal);
+  color: var(--surface-dark);
   letter-spacing: 4px;
   text-transform: uppercase;
   font-weight: 700;
@@ -467,19 +470,19 @@ onMounted(() => {
 .env-line {
   width: 40px;
   height: 1px;
-  background: var(--charcoal);
+  background: var(--surface-dark);
 }
 
 .env-dot {
   font-size: 6px;
-  color: var(--charcoal);
+  color: var(--surface-dark);
 }
 
 .envelope-couple {
   font-family: 'Great Vibes', cursive;
   font-size: clamp(22px, 5vw, 28px);
   color: var(--charcoal);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .envelope-guest-area {
@@ -502,6 +505,7 @@ onMounted(() => {
   font-size: clamp(16px, 4vw, 20px);
   color: var(--charcoal);
   font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
 .envelope-flap {
@@ -509,7 +513,7 @@ onMounted(() => {
   top: 0;
   left: 0;
   right: 0;
-  height: 160px;
+  height: 60px;
   z-index: 4;
   transform-style: preserve-3d;
   transform-origin: top center;
@@ -518,20 +522,22 @@ onMounted(() => {
 .flap-inner {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, var(--emas) 0%, var(--emas-dark) 100%);
-  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  background: linear-gradient(180deg, var(--emas-dark) 0%, var(--emas) 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
   backface-visibility: hidden;
   transform: rotateX(0deg);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 8px 8px 0 0;
 }
 
 .flap-front-face {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, var(--emas) 0%, var(--emas-dark) 100%);
-  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  background: linear-gradient(180deg, var(--emas-dark) 0%, var(--emas) 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
   backface-visibility: hidden;
   transform: rotateX(180deg);
+  border-radius: 8px 8px 0 0;
 }
 
 .envelope-btn {

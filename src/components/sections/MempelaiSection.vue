@@ -43,20 +43,19 @@ onUnmounted(() => observer?.disconnect())
 <template>
   <section id="section-mempelai" data-section class="section-mempelai scroll-reveal" :class="{ visible: isVisible }" aria-label="Profil Mempelai">
     <div class="section-content">
-      <div class="section-title">
-        <img src="/images/couples/cropped_assets/asset_23.png" alt="" class="title-floral" loading="lazy" />
+      <div class="section-title anim anim-up" style="--d: 0s">
         <h2>Mempelai</h2>
         <div class="title-underline"></div>
       </div>
 
-      <p class="mempelai-intro">
+      <p class="mempelai-intro anim anim-up" style="--d: 0.15s">
         Dengan memohon Rahmat dan Ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami:
       </p>
 
 
 
       <div class="mempelai-cards">
-        <div class="mempelai-card groom-card">
+        <div class="mempelai-card groom-card anim anim-left" style="--d: 0.25s">
           <div class="card-character">
             <img src="/images/couples/cropped_assets/asset_1.png" alt="Mempelai Pria" class="character-img" loading="lazy" />
           </div>
@@ -70,13 +69,13 @@ onUnmounted(() => observer?.disconnect())
           </div>
         </div>
 
-        <div class="card-divider">
+        <div class="card-divider anim anim-scale" style="--d: 0.4s">
           <div class="divider-line"></div>
           <img src="/images/couples/cropped_assets/asset_15.png" alt="" class="divider-monogram" loading="lazy" />
           <div class="divider-line"></div>
         </div>
 
-        <div class="mempelai-card bride-card">
+        <div class="mempelai-card bride-card anim anim-right" style="--d: 0.55s">
           <div class="card-character">
             <img src="/images/couples/cropped_assets/asset_5.png" alt="Mempelai Wanita" class="character-img" loading="lazy" />
           </div>
@@ -109,12 +108,6 @@ onUnmounted(() => observer?.disconnect())
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.title-floral {
-  width: 40px;
-  margin-bottom: 12px;
-  opacity: 0.7;
 }
 
 .section-title h2 {
@@ -202,21 +195,21 @@ onUnmounted(() => observer?.disconnect())
 }
 
 .card-character {
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   background: rgba(var(--emas-rgb), 0.08);
-  border: 2px solid rgba(var(--emas-rgb), 0.2);
+  border: 3px solid rgba(var(--emas-rgb), 0.25);
   overflow: hidden;
   flex-shrink: 0;
 }
 
 .character-img {
-  width: 80%;
-  height: 80%;
+  width: 85%;
+  height: 85%;
   object-fit: contain;
 }
 
@@ -326,6 +319,10 @@ onUnmounted(() => observer?.disconnect())
     flex-direction: row;
     text-align: left;
     align-items: center;
+  }
+  .card-character {
+    width: 130px;
+    height: 130px;
   }
   .card-body {
     align-items: flex-start;

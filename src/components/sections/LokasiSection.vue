@@ -39,14 +39,13 @@ function openMaps(url: string) {
 <template>
   <section id="section-lokasi" data-section class="section-lokasi scroll-reveal" :class="{ visible: isVisible }" aria-label="Lokasi Acara">
     <div class="section-content">
-      <div class="section-title">
-        <!-- <img src="/images/couples/cropped_assets/asset_23.png" alt="" class="title-floral" loading="lazy" /> -->
+      <div class="section-title anim anim-up" style="--d: 0s">
         <h2>Lokasi Acara</h2>
         <div class="title-underline"></div>
       </div>
 
       <div class="locations-grid">
-        <div v-for="(event, index) in events" :key="event.type" class="location-card" :style="{ animationDelay: `${index * 0.15}s` }">
+        <div v-for="(event, index) in events" :key="event.type" class="location-card anim anim-up" :style="{ '--d': `${0.15 + index * 0.15}s` }">
           <div class="card-ornament-area">
             <img src="/images/couples/cropped_assets/asset_10.png" alt="" class="card-culture-icon" loading="lazy" />
           </div>
@@ -80,12 +79,6 @@ function openMaps(url: string) {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.title-floral {
-  width: 40px;
-  margin-bottom: 12px;
-  opacity: 0.7;
 }
 
 .section-title h2 {

@@ -116,12 +116,6 @@ onUnmounted(() => observer?.disconnect())
   align-items: center;
 }
 
-.title-floral {
-  width: 40px;
-  margin-bottom: 12px;
-  opacity: 0.7;
-}
-
 .section-title h2 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(32px, 6vw, 48px);

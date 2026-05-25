@@ -106,20 +106,17 @@ onUnmounted(() => {
 <template>
   <section id="section-gift" class="gift-section scroll-reveal" :class="{ visible: isVisible }">
     <div class="gift-content">
-      <div class="section-title">
-        <img src="/images/couples/cropped_assets/asset_23.png" alt="" class="title-floral" loading="lazy" />
+      <div class="section-title anim anim-up" style="--d: 0s">
         <h2>Amplop Digital</h2>
         <div class="title-underline"></div>
       </div>
 
-      <p class="gift-intro">
+      <p class="gift-intro anim anim-up" style="--d: 0.15s">
         Doa restu Anda merupakan karunia yang sangat berarti bagi kami.
         Namun jika Anda ingin memberikan tanda kasih, kami menyediakan amplop digital.
       </p>
 
-      <img src="/images/couples/cropped_assets/asset_19.png" alt="" class="gift-divider" loading="lazy" />
-
-      <div class="gift-tabs">
+      <div class="gift-tabs anim anim-up" style="--d: 0.25s">
         <button
           class="tab-btn"
           :class="{ active: activeTab === 'bank' }"
@@ -141,7 +138,7 @@ onUnmounted(() => {
       <Transition name="tab-switch" mode="out-in">
         <div v-if="activeTab === 'bank'" key="bank" class="tab-content">
           <div class="bank-cards">
-            <div v-for="bank in banks" :key="bank.bankName" class="bank-card">
+            <div v-for="(bank, idx) in banks" :key="bank.bankName" class="bank-card anim anim-up" :style="{ '--d': `${0.35 + idx * 0.1}s` }">
               <div class="bank-header">
                 <div class="bank-logo" :style="{ background: getBankColor(bank.bankName) }">
                   <span class="bank-initials">{{ getBankInitials(bank.bankName) }}</span>
@@ -213,7 +210,7 @@ onUnmounted(() => {
         </div>
       </Transition>
 
-      <div class="gift-footer">
+      <div class="gift-footer anim anim-up" style="--d: 0.5s">
         <img src="/images/couples/cropped_assets/asset_16.png" alt="" class="footer-crown" loading="lazy" />
         <p class="gift-thanks">
           Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i
@@ -252,12 +249,6 @@ onUnmounted(() => {
   align-items: center;
 }
 
-.title-floral {
-  width: 40px;
-  margin-bottom: 12px;
-  opacity: 0.7;
-}
-
 .section-title h2 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(32px, 6vw, 48px);
@@ -283,13 +274,6 @@ onUnmounted(() => {
   max-width: 560px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.gift-divider {
-  display: block;
-  width: 50px;
-  margin: 0 auto 32px;
-  opacity: 0.5;
 }
 
 .gift-tabs {

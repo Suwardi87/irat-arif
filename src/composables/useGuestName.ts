@@ -1,37 +1,28 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
-/**
- * Composable for handling personalized guest names from URL parameters
- *
- * Usage: Add ?to=GuestName to the invitation URL
- * Example: https://example.com/invitation-slug?to=Budi+Santoso
- *
- * The guest name will be decoded and displayed with proper capitalization
- */
+export interface GuestData {
+  slug: string
+  name: string
+  group?: string
+  maxGuests?: number
+}
+
 export function useGuestName() {
   const route = useRoute()
   const guestName = ref<string>('')
+  const guestData = ref<GuestData | null>(null)
   const isPersonalized = computed(() => guestName.value.length > 0)
 
-  /**
-   * Decode URL parameter and format name with proper capitalization
-   * Handles: URL encoding, multiple spaces, and capitalization
-   */
   function formatGuestName(rawName: string): string {
     if (!rawName) return ''
 
-    // Decode URL encoding
     const decoded = decodeURIComponent(rawName)
-
-    // Replace multiple spaces with single space and trim
     const cleaned = decoded.replace(/\s+/g, ' ').trim()
 
-    // Capitalize each word
     return cleaned
       .split(' ')
       .map(word => {
-        // Handle common Indonesian name prefixes
         const lowerPrefixes = ['van', 'von', 'bin', 'binte']
         if (lowerPrefixes.includes(word.toLowerCase())) {
           return word.toLowerCase()
@@ -41,31 +32,70 @@ export function useGuestName() {
       .join(' ')
   }
 
-  /**
-   * Get guest name from URL query parameter
-   * Priority: ?to > ?u > ?guest > ?name
-   */
-  function getGuestNameFromQuery(): string {
-    const query = route.query
-
-    // Check for common query parameter names
-    const nameParam = query.to || query.u || query.guest || query.name
-
-    if (typeof nameParam === 'string') {
-      return formatGuestName(nameParam)
-    }
-
-    return ''
+  function slugify(name: string): string {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim()
   }
 
-  // Initialize on mount
-  onMounted(() => {
-    guestName.value = getGuestNameFromQuery()
+  async function loadGuestFromSlug(slug: string): Promise<GuestData | null> {
+    try {
+      const currentSlug = route.params.slug as string
+      const response = await fetch('/data/invitations.json')
+      const json = await response.json()
+      const invitation = json.invitations.find((inv: any) => inv.slug === currentSlug && inv.isActive)
+      if (invitation?.guests) {
+        const found = invitation.guests.find((g: GuestData) => g.slug === slug)
+        return found || null
+      }
+    } catch {
+      // silently fail
+    }
+    return null
+  }
+
+  function trackGuestOpen(guestSlug: string) {
+    try {
+      const key = `wedding_guest_opens_${route.params.slug}`
+      const data = JSON.parse(localStorage.getItem(key) || '{}')
+      if (!data[guestSlug]) {
+        data[guestSlug] = {
+          firstOpenedAt: new Date().toISOString(),
+          openCount: 1
+        }
+      } else {
+        data[guestSlug].openCount = (data[guestSlug].openCount || 0) + 1
+        data[guestSlug].lastOpenedAt = new Date().toISOString()
+      }
+      localStorage.setItem(key, JSON.stringify(data))
+    } catch {
+      // silently fail
+    }
+  }
+
+  onMounted(async () => {
+    const query = route.query
+    const guestSlug = query.guest as string
+
+    if (guestSlug) {
+      const data = await loadGuestFromSlug(guestSlug)
+      if (data) {
+        guestData.value = data
+        guestName.value = data.name
+        trackGuestOpen(guestSlug)
+        return
+      }
+    }
+
+    const nameParam = query.to || query.u || query.name
+    if (typeof nameParam === 'string') {
+      guestName.value = formatGuestName(nameParam)
+    }
   })
 
-  /**
-   * Get greeting text based on guest name
-   */
   const greeting = computed(() => {
     if (!isPersonalized.value) return ''
 
@@ -75,13 +105,9 @@ export function useGuestName() {
       `Halo, ${guestName.value}`
     ]
 
-    // Random greeting for variety
     return greetings[Math.floor(Math.random() * greetings.length)]
   })
 
-  /**
-   * Get invitation opening text
-   */
   const openingText = computed(() => {
     if (!isPersonalized.value) {
       return 'Tanpa mengurangi rasa hormat, kami mengundang Anda'
@@ -92,9 +118,11 @@ export function useGuestName() {
 
   return {
     guestName,
+    guestData,
     isPersonalized,
     greeting,
     openingText,
-    formatGuestName
+    formatGuestName,
+    slugify
   }
 }

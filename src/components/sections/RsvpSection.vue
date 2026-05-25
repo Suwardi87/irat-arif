@@ -50,13 +50,12 @@ function confirmRsvp(phoneNumber: string, message: string) {
 <template>
   <section id="section-rsvp" data-section class="section-rsvp scroll-reveal" :class="{ visible: isVisible }" aria-label="Konfirmasi Kehadiran">
     <div class="section-content">
-      <div class="section-title">
-        <img src="/images/couples/cropped_assets/asset_23.png" alt="" class="title-floral" loading="lazy" />
+      <div class="section-title anim anim-up" style="--d: 0s">
         <h2>Konfirmasi Kehadiran</h2>
         <div class="title-underline"></div>
       </div>
 
-      <div class="rsvp-body">
+      <div class="rsvp-body anim anim-up" style="--d: 0.15s">
         <img src="/images/couples/cropped_assets/asset_18.png" alt="" class="floral-accent left" loading="lazy" />
         <img src="/images/couples/cropped_assets/asset_18.png" alt="" class="floral-accent right" loading="lazy" />
 
@@ -118,12 +117,6 @@ function confirmRsvp(phoneNumber: string, message: string) {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.title-floral {
-  width: 40px;
-  margin-bottom: 12px;
-  opacity: 0.7;
 }
 
 .section-title h2 {

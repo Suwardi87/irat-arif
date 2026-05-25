@@ -23,9 +23,11 @@ onUnmounted(() => observer?.disconnect())
 <template>
   <section id="section-bismillah" data-section class="section-bismillah scroll-reveal" :class="{ visible: isVisible }">
     <div class="section-content">
-      <div class="bismillah-frame">
-        <img src="/images/couples/cropped_assets/asset_2.png" alt="" class="flower-ring" loading="lazy" />
-        <div class="bismillah-text">
+      <div class="bismillah-layout">
+        <div class="flower-wrapper anim anim-scale" style="--d: 0s">
+          <img src="/images/couples/cropped_assets/asset_30.png" alt="" class="flower-ring" loading="lazy" />
+        </div>
+        <div class="bismillah-text anim anim-up" style="--d: 0.2s">
           <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
           <p class="bismillah-translate">Dengan Nama Allah Yang Maha Pengasih Lagi Maha Penyayang</p>
         </div>
@@ -49,18 +51,19 @@ onUnmounted(() => observer?.disconnect())
   align-items: center;
 }
 
-.bismillah-frame {
-  position: relative;
+.bismillah-layout {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 300px;
-  height: 300px;
+  gap: 32px;
+}
+
+.flower-wrapper {
+  width: 200px;
+  height: 200px;
 }
 
 .flower-ring {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -68,10 +71,8 @@ onUnmounted(() => observer?.disconnect())
 }
 
 .bismillah-text {
-  position: relative;
-  z-index: 1;
   text-align: center;
-  padding: 40px;
+  max-width: 500px;
 }
 
 .bismillah {
@@ -79,16 +80,16 @@ onUnmounted(() => observer?.disconnect())
   font-size: clamp(22px, 4.5vw, 32px);
   color: var(--emas);
   text-shadow: 0 2px 20px rgba(var(--emas-rgb), 0.3);
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 .bismillah-translate {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 14px;
+  font-size: clamp(14px, 2.5vw, 16px);
   color: var(--cream);
-  opacity: 0.75;
-  margin-top: 12px;
-  line-height: 1.6;
+  opacity: 0.8;
+  margin-top: 14px;
+  line-height: 1.7;
 }
 
 .section-divider {
@@ -109,12 +110,9 @@ onUnmounted(() => observer?.disconnect())
 }
 
 @media (max-width: 480px) {
-  .bismillah-frame {
-    width: 240px;
-    height: 240px;
-  }
-  .bismillah-text {
-    padding: 30px;
+  .flower-wrapper {
+    width: 160px;
+    height: 160px;
   }
 }
 </style>

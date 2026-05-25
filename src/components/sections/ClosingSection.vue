@@ -29,23 +29,23 @@ onUnmounted(() => observer?.disconnect())
 <template>
   <section id="section-closing" data-section class="section-closing scroll-reveal" :class="{ visible: isVisible }">
     <div class="section-content">
-      <div class="closing-frame">
+      <div class="closing-frame anim anim-scale" style="--d: 0s">
         <img src="/images/couples/cropped_assets/asset_3.png" alt="" class="corner tl" loading="lazy" />
         <img src="/images/couples/cropped_assets/asset_4.png" alt="" class="corner tr" loading="lazy" />
 
         <div class="closing-inner">
-          <p v-for="quote in quotes" :key="quote.source" class="closing-quote">
+          <p v-for="quote in quotes" :key="quote.source" class="closing-quote anim anim-up" style="--d: 0.2s">
             "{{ quote.text }}"
           </p>
-          <p class="closing-source">({{ quotes[0]?.source }})</p>
+          <p class="closing-source anim anim-up" style="--d: 0.35s">({{ quotes[0]?.source }})</p>
 
-          <img src="/images/couples/cropped_assets/asset_15.png" alt="" class="closing-monogram" loading="lazy" />
+          <img src="/images/couples/cropped_assets/asset_15.png" alt="" class="closing-monogram anim anim-scale" style="--d: 0.45s" loading="lazy" />
 
-          <div class="closing-couple">
+          <div class="closing-couple anim anim-up" style="--d: 0.55s">
             <h3>{{ brideNickname }} & {{ groomNickname }}</h3>
           </div>
 
-          <p class="closing-thank">Wa Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
+          <p class="closing-thank anim anim-up" style="--d: 0.65s">Wa Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
 
           <div class="closing-floral-row">
             <div class="floral-line"></div>

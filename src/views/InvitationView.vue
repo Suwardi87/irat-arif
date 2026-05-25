@@ -9,7 +9,6 @@ import AcaraSection from '@/components/sections/AcaraSection.vue'
 import LokasiSection from '@/components/sections/LokasiSection.vue'
 import RsvpSection from '@/components/sections/RsvpSection.vue'
 import ClosingSection from '@/components/sections/ClosingSection.vue'
-import StorySection from '@/components/sections/StorySection.vue'
 import GuestBookSection from '@/components/sections/GuestBookSection.vue'
 import GiftSection from '@/components/sections/GiftSection.vue'
 import SettingsPanel from '@/components/ui/SettingsPanel.vue'
@@ -26,7 +25,7 @@ const scrollProgress = ref(0)
 const invitationData = ref<any>(null)
 
 const { days, hours, minutes, seconds, start } = useCountdown()
-const { isPersonalized, greeting, openingText } = useGuestName()
+const { isPersonalized, greeting, openingText, guestData } = useGuestName()
 useTheme()
 
 async function loadInvitation(slug: string) {
@@ -111,6 +110,7 @@ const coupleShortName = computed(() => {
     :is-personalized="isPersonalized"
     :bride-nickname="invitationData.couple.bride.nickname"
     :groom-nickname="invitationData.couple.groom.nickname"
+    :guest-data="guestData"
     @open="openInvitation"
   />
 
@@ -136,11 +136,6 @@ const coupleShortName = computed(() => {
 
     <template v-if="invitationData">
       <BismillahSection />
-      <StorySection
-        v-if="invitationData.story?.enabled"
-        :title="invitationData.story.title"
-        :milestones="invitationData.story.milestones"
-      />
       <MempelaiSection :bride="invitationData.couple.bride" :groom="invitationData.couple.groom" :couple-photo="invitationData.couple.couplePhoto" />
       <AcaraSection :events="invitationData.events" :days="days" :hours="hours" :minutes="minutes" :seconds="seconds" />
       <LokasiSection :events="invitationData.events" />
@@ -342,6 +337,50 @@ body {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.scroll-reveal .anim {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: var(--d, 0s);
+}
+
+.scroll-reveal .anim-up {
+  transform: translateY(40px);
+}
+
+.scroll-reveal .anim-left {
+  transform: translateX(-40px);
+}
+
+.scroll-reveal .anim-right {
+  transform: translateX(40px);
+}
+
+.scroll-reveal .anim-scale {
+  transform: scale(0.85);
+}
+
+.scroll-reveal.visible .anim,
+.scroll-reveal.visible .anim-up,
+.scroll-reveal.visible .anim-left,
+.scroll-reveal.visible .anim-right,
+.scroll-reveal.visible .anim-scale {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal .anim,
+  .scroll-reveal .anim-up,
+  .scroll-reveal .anim-left,
+  .scroll-reveal .anim-right,
+  .scroll-reveal .anim-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

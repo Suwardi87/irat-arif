@@ -144,17 +144,17 @@ onMounted(() => {
 <template>
   <section id="section-guestbook" class="gb-section">
     <div class="gb-content">
-      <div class="section-title">
+      <div class="section-title anim anim-up" style="--d: 0s">
         <span class="title-icon">💌</span>
         <h2>Ucapan & Doa</h2>
         <div class="title-underline"></div>
       </div>
 
-      <p class="gb-intro">
+      <p class="gb-intro anim anim-up" style="--d: 0.1s">
         Berikan ucapan dan doa terbaik untuk kedua mempelai
       </p>
 
-      <div v-if="totalWishes > 0" class="gb-stats">
+      <div v-if="totalWishes > 0" class="gb-stats anim anim-up" style="--d: 0.2s">
         <div class="stat-item">
           <span class="stat-num">{{ totalWishes }}</span>
           <span class="stat-label">Ucapan</span>

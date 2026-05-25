@@ -8,6 +8,14 @@ const routes: RouteRecordRaw[] = [
     redirect: `/${DEFAULT_INVITATION_SLUG}`
   },
   {
+    path: '/admin/guests',
+    name: 'admin-guests',
+    component: () => import('@/views/AdminGuestsView.vue'),
+    meta: {
+      title: 'Admin - Guest List Manager'
+    }
+  },
+  {
     path: '/:slug',
     name: 'invitation',
     component: () => import('@/views/InvitationView.vue'),

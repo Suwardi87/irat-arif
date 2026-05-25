@@ -45,18 +45,13 @@ onUnmounted(() => observer?.disconnect())
 <template>
   <section id="section-acara" data-section class="section-acara scroll-reveal" :class="{ visible: isVisible }" aria-label="Rangkaian Acara">
     <div class="section-content">
-      <div class="rumah-gadang-hero">
-        <img src="/images/couples/cropped_assets/asset_6.png" alt="Rumah Gadang" class="rumah-gadang-img" loading="lazy" />
-      </div>
-
-      <div class="section-title">
-        <!-- <img src="/images/couples/cropped_assets/asset_5.png" alt="" class="title-floral" loading="lazy" /> -->
+      <div class="section-title anim anim-up" style="--d: 0s">
         <h2>Rangkaian Acara</h2>
         <div class="title-underline"></div>
       </div>
 
       <div class="events-grid">
-        <div v-for="event in events" :key="event.type" class="event-card">
+        <div v-for="(event, idx) in events" :key="event.type" class="event-card anim anim-up" :style="{ '--d': `${0.15 + idx * 0.12}s` }">
           <div class="event-glow"></div>
           <div class="event-date">
             <span class="event-day">{{ event.day }}</span>
@@ -75,30 +70,36 @@ onUnmounted(() => observer?.disconnect())
         </div>
       </div>
 
-      <img src="/images/couples/cropped_assets/asset_19.png" alt="" class="section-divider" loading="lazy" />
+      <img src="/images/couples/cropped_assets/asset_19.png" alt="" class="section-divider anim anim-scale" style="--d: 0.4s" loading="lazy" />
 
       <div class="countdown-section">
-        <h3 class="countdown-title">Menuju Hari Bahagia</h3>
-        <div class="countdown-grid">
-          <div class="countdown-box">
-            <span class="countdown-num">{{ days }}</span>
-            <span class="countdown-label">Hari</span>
+        <img src="/images/couples/cropped_assets/asset_13.png" alt="Save The Date" class="countdown-frame anim anim-scale" style="--d: 0.5s" loading="lazy" />
+        <h3 class="countdown-title anim anim-up" style="--d: 0.6s">Menuju Hari Bahagia</h3>
+
+        <div class="countdown-wrapper anim anim-up" style="--d: 0.7s">
+          <img src="/images/couples/cropped_assets/asset_12.png" alt="" class="countdown-flower countdown-flower-left" loading="lazy" />
+          <div class="countdown-grid">
+            <div class="countdown-box">
+              <span class="countdown-num">{{ days }}</span>
+              <span class="countdown-label">Hari</span>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-box">
+              <span class="countdown-num">{{ hours }}</span>
+              <span class="countdown-label">Jam</span>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-box">
+              <span class="countdown-num">{{ minutes }}</span>
+              <span class="countdown-label">Menit</span>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-box">
+              <span class="countdown-num">{{ seconds }}</span>
+              <span class="countdown-label">Detik</span>
+            </div>
           </div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-box">
-            <span class="countdown-num">{{ hours }}</span>
-            <span class="countdown-label">Jam</span>
-          </div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-box">
-            <span class="countdown-num">{{ minutes }}</span>
-            <span class="countdown-label">Menit</span>
-          </div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-box">
-            <span class="countdown-num">{{ seconds }}</span>
-            <span class="countdown-label">Detik</span>
-          </div>
+          <img src="/images/couples/cropped_assets/asset_18.png" alt="" class="countdown-flower countdown-flower-right" loading="lazy" />
         </div>
       </div>
     </div>
@@ -119,28 +120,11 @@ onUnmounted(() => observer?.disconnect())
   align-items: center;
 }
 
-.rumah-gadang-hero {
-  width: 140px;
-  margin-bottom: 24px;
-}
-
-.rumah-gadang-img {
-  width: 100%;
-  filter: drop-shadow(0 4px 20px rgba(var(--emas-rgb), 0.2));
-  opacity: 0.85;
-}
-
 .section-title {
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.title-floral {
-  width: 40px;
-  margin-bottom: 12px;
-  opacity: 0.7;
 }
 
 .section-title h2 {
@@ -263,13 +247,53 @@ onUnmounted(() => observer?.disconnect())
 .countdown-section {
   text-align: center;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-frame {
+  width: 90px;
+  margin-bottom: 12px;
+  opacity: 0.85;
+  filter: drop-shadow(0 2px 12px rgba(var(--emas-rgb), 0.2));
 }
 
 .countdown-title {
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: clamp(22px, 4vw, 28px);
   color: var(--emas);
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+}
+
+.countdown-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.countdown-flower {
+  position: absolute;
+  opacity: 0.35;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 8px rgba(var(--emas-rgb), 0.15));
+}
+
+.countdown-flower-left {
+  width: 120px;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.countdown-flower-right {
+  width: 140px;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .countdown-grid {
@@ -277,18 +301,21 @@ onUnmounted(() => observer?.disconnect())
   align-items: center;
   justify-content: center;
   gap: 8px;
+  position: relative;
+  z-index: 1;
 }
 
 .countdown-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(var(--emas-rgb), 0.08);
+  background: linear-gradient(135deg, rgba(var(--emas-rgb), 0.12), rgba(var(--emas-rgb), 0.04));
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(var(--emas-rgb), 0.2);
-  border-radius: 12px;
-  padding: 16px 20px;
-  min-width: 70px;
+  border: 1px solid rgba(var(--emas-rgb), 0.25);
+  border-radius: 14px;
+  padding: 20px 24px;
+  min-width: 80px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .countdown-num {
@@ -331,12 +358,22 @@ onUnmounted(() => observer?.disconnect())
     justify-content: center;
     text-align: center;
   }
-  .rumah-gadang-hero {
-    width: 100px;
+  .countdown-frame {
+    width: 70px;
   }
   .countdown-box {
-    padding: 12px 14px;
-    min-width: 60px;
+    padding: 14px 16px;
+    min-width: 62px;
+  }
+  .countdown-flower-left {
+    width: 70px;
+    left: -10px;
+    opacity: 0.2;
+  }
+  .countdown-flower-right {
+    width: 80px;
+    right: -15px;
+    opacity: 0.2;
   }
 }
 </style>
