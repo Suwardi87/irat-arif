@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 
-const DEFAULT_INVITATION_SLUG = 'asratul-fitri'
+const DEFAULT_INVITATION_SLUG = 'asratul-fitri-arif-hidayatulah'
 
 const routes: RouteRecordRaw[] = [
   {
