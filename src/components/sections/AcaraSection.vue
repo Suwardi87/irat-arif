@@ -73,7 +73,6 @@ onUnmounted(() => observer?.disconnect())
       <img src="/images/couples/cropped_assets/asset_19.png" alt="" class="section-divider anim anim-scale" style="--d: 0.4s" loading="lazy" />
 
       <div class="countdown-section">
-        <img src="/images/couples/cropped_assets/asset_13.png" alt="Save The Date" class="countdown-frame anim anim-scale" style="--d: 0.5s" loading="lazy" />
         <h3 class="countdown-title anim anim-up" style="--d: 0.6s">Menuju Hari Bahagia</h3>
 
         <div class="countdown-wrapper anim anim-up" style="--d: 0.7s">
@@ -252,13 +251,6 @@ onUnmounted(() => observer?.disconnect())
   align-items: center;
 }
 
-.countdown-frame {
-  width: 90px;
-  margin-bottom: 12px;
-  opacity: 0.85;
-  filter: drop-shadow(0 2px 12px rgba(var(--emas-rgb), 0.2));
-}
-
 .countdown-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(22px, 4vw, 28px);
@@ -357,9 +349,6 @@ onUnmounted(() => observer?.disconnect())
   .event-card {
     justify-content: center;
     text-align: center;
-  }
-  .countdown-frame {
-    width: 70px;
   }
   .countdown-box {
     padding: 14px 16px;

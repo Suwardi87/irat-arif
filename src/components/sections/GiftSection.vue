@@ -7,23 +7,10 @@ interface BankAccount {
   accountName: string
 }
 
-interface EWallet {
-  name: string
-  number: string
-  holder: string
-}
-
 defineProps<{
   banks: BankAccount[]
 }>()
 
-const ewallets: EWallet[] = [
-  { name: 'GoPay', number: '081234567890', holder: 'Asratul Fitri' },
-  { name: 'OVO', number: '081234567890', holder: 'Asratul Fitri' },
-  { name: 'DANA', number: '081234567890', holder: 'Asratul Fitri' }
-]
-
-const activeTab = ref<'bank' | 'ewallet'>('bank')
 const copiedId = ref<string | null>(null)
 const isVisible = ref(false)
 let observer: IntersectionObserver | null = null
@@ -46,17 +33,6 @@ function getBankColor(name: string): string {
 
 function getBankInitials(name: string): string {
   return name.slice(0, 2).toUpperCase()
-}
-
-function getEwalletIcon(name: string): string {
-  const icons: Record<string, string> = {
-    GoPay: '💚',
-    OVO: '💜',
-    DANA: '💙',
-    ShopeePay: '🧡',
-    LinkAja: '❤️'
-  }
-  return icons[name] || '📱'
 }
 
 async function copyToClipboard(text: string, id: string) {
@@ -116,28 +92,7 @@ onUnmounted(() => {
         Namun jika Anda ingin memberikan tanda kasih, kami menyediakan amplop digital.
       </p>
 
-      <div class="gift-tabs anim anim-up" style="--d: 0.25s">
-        <button
-          class="tab-btn"
-          :class="{ active: activeTab === 'bank' }"
-          @click="activeTab = 'bank'"
-        >
-          <span class="tab-icon">🏦</span>
-          <span>Transfer Bank</span>
-        </button>
-        <button
-          class="tab-btn"
-          :class="{ active: activeTab === 'ewallet' }"
-          @click="activeTab = 'ewallet'"
-        >
-          <span class="tab-icon">📱</span>
-          <span>E-Wallet</span>
-        </button>
-      </div>
-
-      <Transition name="tab-switch" mode="out-in">
-        <div v-if="activeTab === 'bank'" key="bank" class="tab-content">
-          <div class="bank-cards">
+      <div class="bank-cards">
             <div v-for="(bank, idx) in banks" :key="bank.bankName" class="bank-card anim anim-up" :style="{ '--d': `${0.35 + idx * 0.1}s` }">
               <div class="bank-header">
                 <div class="bank-logo" :style="{ background: getBankColor(bank.bankName) }">
@@ -169,46 +124,6 @@ onUnmounted(() => {
               </div>
             </div>
           </div>
-        </div>
-
-        <div v-else key="ewallet" class="tab-content">
-          <div class="ewallet-cards">
-            <div v-for="wallet in ewallets" :key="wallet.name" class="ewallet-card">
-              <div class="ewallet-header">
-                <span class="ewallet-icon">{{ getEwalletIcon(wallet.name) }}</span>
-                <span class="ewallet-name">{{ wallet.name }}</span>
-              </div>
-
-              <div class="ewallet-details">
-                <div class="detail-row">
-                  <span class="detail-label">a.n.</span>
-                  <span class="detail-value account-name">{{ wallet.holder }}</span>
-                </div>
-                <div class="detail-row account-row">
-                  <span class="detail-value account-number">{{ wallet.number }}</span>
-                  <button
-                    class="copy-btn"
-                    :class="{ copied: copiedId === wallet.name }"
-                    @click="copyToClipboard(wallet.number, wallet.name)"
-                  >
-                    <Transition name="copy-icon" mode="out-in">
-                      <span v-if="copiedId === wallet.name" key="check" class="copy-content">✅</span>
-                      <span v-else key="copy" class="copy-content">📋</span>
-                    </Transition>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="qris-note">
-            <div class="qris-badge">
-              <span class="qris-text">QRIS</span>
-            </div>
-            <p class="qris-info">Scan QR code di aplikasi e-wallet Anda untuk transfer mudah</p>
-          </div>
-        </div>
-      </Transition>
 
       <div class="gift-footer anim anim-up" style="--d: 0.5s">
         <img src="/images/couples/cropped_assets/asset_16.png" alt="" class="footer-crown" loading="lazy" />
@@ -276,82 +191,13 @@ onUnmounted(() => {
   margin-right: auto;
 }
 
-.gift-tabs {
-  display: flex;
-  gap: 4px;
-  background: rgba(var(--emas-rgb), 0.08);
-  border-radius: 12px;
-  padding: 4px;
-  margin-bottom: 32px;
-  border: 1px solid rgba(var(--emas-rgb), 0.1);
-}
-
-.tab-btn {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 16px;
-  border-radius: 10px;
-  border: none;
-  background: transparent;
-  color: var(--cream);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  opacity: 0.6;
-}
-
-.tab-btn.active {
-  background: linear-gradient(135deg, rgba(var(--emas-rgb), 0.2), rgba(var(--emas-rgb), 0.08));
-  color: var(--emas);
-  opacity: 1;
-  box-shadow: 0 2px 10px rgba(var(--emas-rgb), 0.1);
-}
-
-.tab-btn:hover:not(.active) {
-  opacity: 0.9;
-  background: rgba(var(--emas-rgb), 0.05);
-}
-
-.tab-icon {
-  font-size: 16px;
-}
-
-.tab-content {
-  min-height: 200px;
-}
-
-.tab-switch-enter-active {
-  transition: all 0.3s ease-out;
-}
-
-.tab-switch-leave-active {
-  transition: all 0.2s ease-in;
-}
-
-.tab-switch-enter-from {
-  opacity: 0;
-  transform: translateX(20px);
-}
-
-.tab-switch-leave-to {
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.bank-cards,
-.ewallet-cards {
+.bank-cards {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.bank-card,
-.ewallet-card {
+.bank-card {
   background: linear-gradient(135deg, rgba(var(--emas-rgb), 0.1), rgba(var(--emas-rgb), 0.04));
   backdrop-filter: blur(10px);
   border: 1px solid rgba(var(--emas-rgb), 0.15);
@@ -360,14 +206,12 @@ onUnmounted(() => {
   transition: all 0.3s ease;
 }
 
-.bank-card:hover,
-.ewallet-card:hover {
+.bank-card:hover {
   border-color: rgba(var(--emas-rgb), 0.35);
   box-shadow: 0 6px 25px rgba(var(--emas-rgb), 0.08);
 }
 
-.bank-header,
-.ewallet-header {
+.bank-header {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -399,19 +243,7 @@ onUnmounted(() => {
   font-weight: 700;
 }
 
-.ewallet-icon {
-  font-size: 28px;
-}
-
-.ewallet-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  color: var(--emas);
-  font-weight: 700;
-}
-
-.bank-details,
-.ewallet-details {
+.bank-details {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -514,41 +346,6 @@ onUnmounted(() => {
   opacity: 0;
 }
 
-.qris-note {
-  margin-top: 24px;
-  padding: 16px 20px;
-  background: linear-gradient(135deg, rgba(var(--emas-rgb), 0.08), rgba(var(--emas-rgb), 0.03));
-  backdrop-filter: blur(10px);
-  border: 1px dashed rgba(var(--emas-rgb), 0.2);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.qris-badge {
-  background: linear-gradient(135deg, var(--emas), var(--emas-dark));
-  padding: 6px 12px;
-  border-radius: 6px;
-  flex-shrink: 0;
-}
-
-.qris-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--charcoal);
-  letter-spacing: 2px;
-}
-
-.qris-info {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 14px;
-  color: var(--cream);
-  opacity: 0.6;
-  line-height: 1.5;
-}
-
 .gift-footer {
   margin-top: 40px;
   text-align: center;
@@ -589,14 +386,6 @@ onUnmounted(() => {
   .account-number {
     font-size: 17px;
     letter-spacing: 1px;
-  }
-  .tab-btn {
-    padding: 10px 12px;
-    font-size: 14px;
-  }
-  .qris-note {
-    flex-direction: column;
-    text-align: center;
   }
 }
 </style>
