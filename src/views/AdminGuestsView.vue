@@ -327,7 +327,7 @@ onMounted(async () => {
         <span class="topbar-logo">&#9830;</span>
         <span class="topbar-title">Guest Manager</span>
       </div>
-      <a href="/" class="topbar-link">Lihat Undangan &rarr;</a>
+      <a :href="`/${invitationSlug}`" class="topbar-link">Lihat Undangan &rarr;</a>
       <span v-if="lastSavedAt" class="save-status" :class="{ saving: isSaving }">
         {{ isSaving ? 'Menyimpan...' : `Tersimpan ${lastSavedAt}` }}
       </span>

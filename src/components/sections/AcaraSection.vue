@@ -70,13 +70,10 @@ onUnmounted(() => observer?.disconnect())
         </div>
       </div>
 
-      <img src="/images/couples/cropped_assets/asset_19.png" alt="" class="section-divider anim anim-scale" style="--d: 0.4s" loading="lazy" />
-
       <div class="countdown-section">
         <h3 class="countdown-title anim anim-up" style="--d: 0.6s">Menuju Hari Bahagia</h3>
 
         <div class="countdown-wrapper anim anim-up" style="--d: 0.7s">
-          <img src="/images/couples/cropped_assets/asset_12.png" alt="" class="countdown-flower countdown-flower-left" loading="lazy" />
           <div class="countdown-grid">
             <div class="countdown-box">
               <span class="countdown-num">{{ days }}</span>
@@ -98,7 +95,6 @@ onUnmounted(() => observer?.disconnect())
               <span class="countdown-label">Detik</span>
             </div>
           </div>
-          <img src="/images/couples/cropped_assets/asset_18.png" alt="" class="countdown-flower countdown-flower-right" loading="lazy" />
         </div>
       </div>
     </div>
@@ -249,6 +245,7 @@ onUnmounted(() => observer?.disconnect())
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 100px;
 }
 
 .countdown-title {
@@ -259,33 +256,11 @@ onUnmounted(() => observer?.disconnect())
 }
 
 .countdown-wrapper {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 600px;
-}
-
-.countdown-flower {
-  position: absolute;
-  opacity: 0.35;
-  pointer-events: none;
-  filter: drop-shadow(0 2px 8px rgba(var(--emas-rgb), 0.15));
-}
-
-.countdown-flower-left {
-  width: 120px;
-  left: -20px;
-  top: 50%;
-  transform: translateY(-50%) scaleX(-1);
-}
-
-.countdown-flower-right {
-  width: 140px;
-  right: -30px;
-  top: 50%;
-  transform: translateY(-50%);
+  max-width: 500px;
 }
 
 .countdown-grid {
@@ -293,8 +268,6 @@ onUnmounted(() => observer?.disconnect())
   align-items: center;
   justify-content: center;
   gap: 8px;
-  position: relative;
-  z-index: 1;
 }
 
 .countdown-box {
@@ -353,16 +326,6 @@ onUnmounted(() => observer?.disconnect())
   .countdown-box {
     padding: 14px 16px;
     min-width: 62px;
-  }
-  .countdown-flower-left {
-    width: 70px;
-    left: -10px;
-    opacity: 0.2;
-  }
-  .countdown-flower-right {
-    width: 80px;
-    right: -15px;
-    opacity: 0.2;
   }
 }
 </style>
