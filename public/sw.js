@@ -1,7 +1,7 @@
 const CACHE_NAME = 'wedding-v1'
 const STATIC_ASSETS = [
   '/',
-  '/asratul-fitri',
+  '/asratul-fitri-arif-hidayatulah',
   '/data/invitations.json',
   '/manifest.json',
   '/images/bride-traditional.png',

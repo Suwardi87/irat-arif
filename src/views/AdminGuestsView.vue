@@ -15,7 +15,7 @@ interface OpenRecord {
 }
 
 const guests = ref<GuestEntry[]>([])
-const invitationSlug = ref('asratul-fitri')
+const invitationSlug = ref('asratul-fitri-arif-hidayatulah')
 const newGuestName = ref('')
 const newGuestGroup = ref('keluarga')
 const newGuestMax = ref(2)
