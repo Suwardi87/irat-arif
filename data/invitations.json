@@ -173,14 +173,14 @@
         "enabled": true,
         "banks": [
           {
-            "bankName": "BCA",
-            "accountNumber": "1234567890",
-            "accountName": "Asratul Fitri"
+            "bankName": "BSI",
+            "accountNumber": "7210594657",
+            "accountName": "Arif Hidayatulah"
           },
           {
-            "bankName": "MANDIRI",
-            "accountNumber": "0987654321",
-            "accountName": "Arif Hidayatulah"
+            "bankName": "BSI",
+            "accountNumber": "9158903020",
+            "accountName": "Asratul Fitri"
           }
         ]
       },
