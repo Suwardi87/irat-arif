@@ -249,10 +249,22 @@
           "name": "Pak Ahmad",
           "group": "tetangga",
           "maxGuests": 1
+        },
+        {
+          "slug": "test",
+          "name": "test",
+          "group": "keluarga",
+          "maxGuests": 2
+        },
+        {
+          "slug": "hanya-test",
+          "name": "hanya test",
+          "group": "keluarga",
+          "maxGuests": 4
         }
       ],
       "createdAt": "2025-01-01T00:00:00+07:00",
-      "updatedAt": "2026-05-25T14:23:02.885Z"
+      "updatedAt": "2026-05-28T12:56:14.915Z"
     }
   ]
 }
