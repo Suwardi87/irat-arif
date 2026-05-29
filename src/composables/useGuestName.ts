@@ -78,7 +78,8 @@ export function useGuestName() {
 
   onMounted(async () => {
     const query = route.query
-    const guestSlug = query.guest as string
+    const guestParam = query.guest as string | string[] | undefined
+    const guestSlug = typeof guestParam === 'string' ? guestParam : undefined
 
     if (guestSlug) {
       const data = await loadGuestFromSlug(guestSlug)
@@ -88,6 +89,10 @@ export function useGuestName() {
         trackGuestOpen(guestSlug)
         return
       }
+
+      // If guest parameter doesn't map to a known slug, use it as raw name fallback.
+      guestName.value = formatGuestName(guestSlug)
+      return
     }
 
     const nameParam = query.to || query.u || query.name
