@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 interface GuestEntry {
   slug: string
@@ -14,6 +15,7 @@ interface OpenRecord {
   openCount?: number
 }
 
+const route = useRoute()
 const guests = ref<GuestEntry[]>([])
 const invitationSlug = ref('asratul-fitri-arif-hidayatulah')
 const newGuestName = ref('')
@@ -128,8 +130,11 @@ function slugify(name: string): string {
     .trim()
 }
 
+const basePath = import.meta.env.BASE_URL?.replace(/\/$/, '') || ''
+
 function generateLink(guest: GuestEntry): string {
-  return `${window.location.origin}/${invitationSlug.value}?guest=${guest.slug}`
+  const origin = window.location.origin
+  return `${origin}${basePath}/${invitationSlug.value}?guest=${guest.slug}`
 }
 
 function getOpenData(guestSlug: string): OpenRecord | null {
@@ -308,6 +313,11 @@ function addBulkGuests() {
 }
 
 onMounted(async () => {
+  const slugParam = route.params.slug as string | undefined
+  if (slugParam) {
+    invitationSlug.value = slugParam
+  }
+
   const fromJson = await loadFromJson()
   if (fromJson && fromJson.length > 0) {
     guests.value = fromJson
@@ -327,7 +337,7 @@ onMounted(async () => {
         <span class="topbar-logo">&#9830;</span>
         <span class="topbar-title">Guest Manager</span>
       </div>
-      <a :href="`/${invitationSlug}`" class="topbar-link">Lihat Undangan &rarr;</a>
+      <a :href="`${basePath}/${invitationSlug}`" class="topbar-link">Lihat Undangan &rarr;</a>
       <span v-if="lastSavedAt" class="save-status" :class="{ saving: isSaving }">
         {{ isSaving ? 'Menyimpan...' : `Tersimpan ${lastSavedAt}` }}
       </span>
