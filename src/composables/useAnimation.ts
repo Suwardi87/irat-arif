@@ -6,7 +6,7 @@ import gsap from 'gsap'
  *
  * Purpose: Centralized control for GSAP animations
  * - Timeline management and sequencing
- * - Proper cleanup to prevent memory leaks
+ * - Proper clseanup to prevent memory leaks
  * - Playback control (play, pause, reverse, restart)
  */
 
