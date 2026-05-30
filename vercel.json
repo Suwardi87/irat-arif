@@ -1,7 +1,5 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "installCommand": "npm install --include=dev",
+  "outputDirectory": ".",
   "rewrites": [
     { "source": "/((?!api/).*))", "destination": "/index.html" }
   ]

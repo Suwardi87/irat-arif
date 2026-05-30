@@ -23,6 +23,11 @@ jobs:
           npm ci
           npm run build
 
+      - name: Copy Vercel config & API route
+        run: |
+          cp vercel.json dist/
+          cp -r api dist/
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
