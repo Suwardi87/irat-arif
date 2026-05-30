@@ -44,6 +44,15 @@ export function useGuestName() {
   async function loadGuestFromSlug(slug: string): Promise<GuestData | null> {
     try {
       const currentSlug = route.params.slug as string
+
+      try {
+        const res = await fetch(`/api/guests?slug=${currentSlug}&guest=${slug}`)
+        const json = await res.json()
+        if (json.guest) return json.guest
+      } catch {
+        // API not available — fallback to static
+      }
+
       const response = await fetch('/data/invitations.json')
       const json = await response.json()
       const invitation = json.invitations.find((inv: any) => inv.slug === currentSlug && inv.isActive)
