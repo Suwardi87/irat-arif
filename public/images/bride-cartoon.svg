@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400" width="200" height="400">
+  <defs>
+    <linearGradient id="bgGradB" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe8ec"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background gradient -->
+  <rect x="0" y="0" width="200" height="400" rx="20" fill="url(#bgGradB)"/>
+
+  <!-- Character Group -->
+  <g>
+    <!-- Shadow -->
+    <ellipse cx="100" cy="375" rx="55" ry="8" fill="#e0d0c0" opacity="0.4"/>
+
+    <!-- Dress - Flowing skirt -->
+    <path d="M35 265 Q20 320 40 385 L160 385 Q180 320 165 265 Z" fill="#f0c8d8"/>
+
+    <!-- Dress folds -->
+    <path d="M50 270 Q40 320 50 380" stroke="#e8b8c8" stroke-width="1.5" fill="none"/>
+    <path d="M75 268 Q70 320 78 380" stroke="#e8b8c8" stroke-width="1.5" fill="none"/>
+    <path d="M125 268 Q130 320 122 380" stroke="#e8b8c8" stroke-width="1.5" fill="none"/>
+    <path d="M150 270 Q160 320 150 380" stroke="#e8b8c8" stroke-width="1.5" fill="none"/>
+
+    <!-- Body/Dress Top -->
+    <path d="M55 135 Q45 180 50 270 L150 270 Q155 180 145 135 Z" fill="#f0c8d8"/>
+
+    <!-- Long Sleeves -->
+    <path d="M55 145 Q35 170 30 210" fill="#f0c8d8"/>
+    <path d="M145 145 Q165 170 170 210" fill="#f0c8d8"/>
+
+    <!-- Sleeve Details -->
+    <ellipse cx="32" cy="212" rx="12" ry="8" fill="#f5d5c5"/>
+    <ellipse cx="168" cy="212" rx="12" ry="8" fill="#f5d5c5"/>
+
+    <!-- Hands - elegant pose -->
+    <circle cx="35" cy="215" r="13" fill="#f5d5c5"/>
+    <circle cx="165" cy="215" r="13" fill="#f5d5c5"/>
+
+    <!-- Sweetheart neckline detail -->
+    <path d="M70 138 Q100 165 130 138" stroke="#e8b8c8" stroke-width="2" fill="none"/>
+
+    <!-- Waist sash -->
+    <ellipse cx="100" cy="185" rx="48" ry="10" fill="#e8b8c8" opacity="0.4"/>
+
+    <!-- Dress embellishment -->
+    <circle cx="100" cy="220" r="4" fill="#ffffff" opacity="0.6"/>
+    <circle cx="85" cy="235" r="3" fill="#ffffff" opacity="0.6"/>
+    <circle cx="115" cy="235" r="3" fill="#ffffff" opacity="0.6"/>
+
+    <!-- Neck -->
+    <rect x="82" y="100" width="36" height="42" fill="#f5d5c5"/>
+
+    <!-- Head - Featureless oval -->
+    <ellipse cx="100" cy="68" rx="38" ry="46" fill="#f5d5c5"/>
+
+    <!-- Hijab - Peach/Pink flowing -->
+    <ellipse cx="100" cy="30" rx="58" ry="52" fill="#f0c8d8"/>
+    <ellipse cx="100" cy="10" rx="48" ry="38" fill="#f0c8d8"/>
+
+    <!-- Hijab draping over shoulders -->
+    <path d="M45 50 Q40 100 45 160" stroke="#e8b8c8" stroke-width="1.5" fill="none"/>
+    <path d="M155 50 Q160 100 155 160" stroke="#e8b8c8" stroke-width="1.5" fill="none"/>
+
+    <!-- Hijab inner layer (darker for depth) -->
+    <ellipse cx="100" cy="45" rx="44" ry="40" fill="#e8c0d0" opacity="0.3"/>
+
+    <!-- Face visible area -->
+    <ellipse cx="100" cy="70" rx="30" ry="36" fill="#f5d5c5"/>
+
+    <!-- Subtle blush -->
+    <ellipse cx="68" cy="78" rx="10" ry="7" fill="#f5c0c8" opacity="0.35"/>
+    <ellipse cx="132" cy="78" rx="10" ry="7" fill="#f5c0c8" opacity="0.35"/>
+
+    <!-- Ears (covered partially) -->
+    <ellipse cx="62" cy="70" rx="4" ry="9" fill="#f5d5c5"/>
+    <ellipse cx="138" cy="70" rx="4" ry="9" fill="#f5d5c5"/>
+  </g>
+</svg>
